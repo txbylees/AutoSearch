@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,23 +7,15 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#0d0d0d;
-  --ink2:#3a3a3a;
-  --ink3:#7a7a7a;
-  --paper:#f5f4f0;
-  --white:#ffffff;
-  --line:#e0dfd8;
-  --red:#c0392b;
-  --red-bg:#fdf0ee;
-  --amber:#b45309;
-  --amber-bg:#fefce8;
-  --green:#166534;
-  --green-bg:#f0fdf4;
-  --blue:#1d4ed8;
-  --blue-bg:#eff6ff;
+  --ink:#0d0d0d;--ink2:#3a3a3a;--ink3:#7a7a7a;
+  --paper:#f5f4f0;--white:#ffffff;--line:#e0dfd8;
+  --red:#c0392b;--red-bg:#fdf0ee;
+  --amber:#b45309;--amber-bg:#fefce8;
+  --green:#166534;--green-bg:#f0fdf4;
+  --blue:#1d4ed8;--blue-bg:#eff6ff;
 }
 body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh}
-.wrap{max-width:780px;margin:0 auto;padding:0 1.5rem 5rem}
+.wrap{max-width:820px;margin:0 auto;padding:0 1.5rem 5rem}
 
 /* NAV */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;border-bottom:1px solid var(--line)}
@@ -41,8 +32,23 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .hero-headline span{color:var(--ink3);font-weight:300}
 .hero-sub{max-width:260px;font-size:0.85rem;color:var(--ink3);line-height:1.6;padding-top:0.5rem}
 
-/* SEARCH */
-.search-zone{padding:2rem 0}
+/* MODE SELECTOR */
+.mode-selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:2rem 0 0}
+.mode-card{background:var(--white);border:1.5px solid var(--line);border-radius:8px;padding:1.25rem 1.5rem;cursor:pointer;transition:border-color 0.15s,background 0.15s;user-select:none}
+.mode-card:hover{border-color:var(--ink)}
+.mode-card.active{border-color:var(--ink);background:var(--ink)}
+.mode-icon{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.4rem;transition:color 0.15s}
+.mode-card.active .mode-icon{color:rgba(255,255,255,0.45)}
+.mode-title{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;color:var(--ink);transition:color 0.15s}
+.mode-card.active .mode-title{color:#fff}
+.mode-desc{font-size:0.78rem;color:var(--ink3);margin-top:4px;line-height:1.4;transition:color 0.15s}
+.mode-card.active .mode-desc{color:rgba(255,255,255,0.5)}
+
+/* FORMS */
+.form-zone{padding:1.5rem 0 0;display:none}
+.form-zone.visible{display:block}
+
+/* SEARCH (single) */
 .search-inner{display:flex;gap:0;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;background:var(--white)}
 .plate-prefix{background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0 14px;display:flex;align-items:center;border-right:1.5px solid var(--ink)}
 .reg-field{flex:1;font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1rem;border:none;outline:none;color:var(--ink);background:transparent}
@@ -52,6 +58,20 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .go-btn:disabled{opacity:0.35;cursor:not-allowed}
 .demo-hint{margin-top:0.75rem;font-size:0.75rem;color:var(--ink3)}
 .demo-hint button{background:none;border:none;color:var(--blue);font-size:0.75rem;cursor:pointer;font-family:'Barlow',sans-serif;text-decoration:underline}
+
+/* COMPARISON FORM */
+.compare-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compare-input-wrap{}
+.compare-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;display:block}
+.compare-inner{display:flex;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;background:var(--white)}
+.compare-prefix{background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0 10px;display:flex;align-items:center}
+.compare-field{flex:1;font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.65rem 0.75rem;border:none;outline:none;color:var(--ink);background:transparent;min-width:0}
+.compare-field::placeholder{color:#ccc;font-weight:300;font-size:1.2rem}
+.compare-btn{grid-column:1/-1;background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.8rem;border:none;border-radius:4px;cursor:pointer;transition:opacity 0.15s}
+.compare-btn:hover{opacity:0.8}
+.compare-btn:disabled{opacity:0.35;cursor:not-allowed}
+.compare-demo-hint{font-size:0.75rem;color:var(--ink3);margin-top:0.6rem}
+.compare-demo-hint button{background:none;border:none;color:var(--blue);font-size:0.75rem;cursor:pointer;font-family:'Barlow',sans-serif;text-decoration:underline}
 
 /* STATUS */
 .status{text-align:center;padding:3rem 0;color:var(--ink3);font-size:0.9rem}
@@ -73,8 +93,6 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 /* GRID CARDS */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
 .grid1{margin-bottom:1.25rem}
-@media(max-width:520px){.grid2{grid-template-columns:1fr}.plate-card{grid-template-columns:1fr}}
-
 .card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.5rem}
 .card-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
 
@@ -141,7 +159,57 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .fsh-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);color:var(--green);font-size:0.75rem;font-weight:500;padding:5px 12px;border-radius:4px;margin-top:0.75rem}
 .fsh-check{width:14px;height:14px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
 
+/* ── COMPARISON RESULTS ────────────────────────────────── */
+.cmp-results{animation:fadeUp 0.4s ease both}
 
+/* top mini plates */
+.cmp-header{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
+.cmp-plate{background:var(--ink);color:#fff;border-radius:6px;padding:1.25rem 1.5rem}
+.cmp-plate-reg{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:0.12em;background:#fff;color:var(--ink);display:inline-block;padding:2px 10px;border-radius:3px;margin-bottom:6px}
+.cmp-plate-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
+.cmp-plate-sub{font-size:0.75rem;opacity:0.5;margin-top:2px}
+
+/* verdict banner */
+.verdict{background:var(--green-bg);border:1px solid #bbf7d0;border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.verdict-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem}
+.verdict-text{font-size:0.9rem;color:var(--ink2);line-height:1.65}
+
+/* comparison table card */
+.cmp-table-card{background:var(--white);border:1px solid var(--line);border-radius:6px;margin-bottom:1.25rem;overflow:hidden}
+.cmp-table-card .card-label{padding:1rem 1.5rem;margin-bottom:0;border-radius:0}
+.cmp-table{width:100%;border-collapse:collapse}
+.cmp-table th{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);padding:0.6rem 1.5rem;background:var(--paper);border-bottom:1px solid var(--line);text-align:left}
+.cmp-table th:not(:first-child){text-align:center}
+.cmp-table td{padding:0.7rem 1.5rem;border-bottom:1px solid var(--line);font-size:0.85rem;vertical-align:middle}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child{color:var(--ink3);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;width:30%}
+.cmp-table td:not(:first-child){text-align:center;font-weight:500;color:var(--ink)}
+.cmp-win{color:var(--green);font-weight:500}
+.cmp-lose{color:var(--ink3);font-weight:400}
+
+/* side by side watchouts */
+.cmp-wo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
+.cmp-wo-col .card-label{margin-bottom:0.75rem}
+
+/* score cards */
+.cmp-scores{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
+.score-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
+.score-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem}
+.score-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.score-row:last-child{margin-bottom:0}
+.score-name{font-size:0.75rem;color:var(--ink2);min-width:80px}
+.score-bar-wrap{flex:1}
+.score-bar-track{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.score-bar-a{background:var(--ink)}
+.score-bar-b{background:var(--ink3)}
+.score-val{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;min-width:28px;text-align:right}
+
+@media(max-width:560px){
+  .mode-selector,.compare-inputs,.cmp-header,.cmp-wo-grid,.cmp-scores,.grid2{grid-template-columns:1fr}
+  .plate-card{grid-template-columns:1fr}
+  .compare-btn{grid-column:1}
+}
 </style>
 </head>
 <body>
@@ -164,7 +232,22 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
       <div class="hero-sub">Enter any UK registration plate. Get specs, estimated value, known issues, rarity and more — instantly.</div>
     </div>
 
-    <div class="search-zone">
+    <!-- MODE SELECTOR -->
+    <div class="mode-selector">
+      <div class="mode-card" id="modeA" onclick="selectMode('lookup')">
+        <div class="mode-icon">Single plate</div>
+        <div class="mode-title">Numberplate Lookup</div>
+        <div class="mode-desc">Full breakdown of one vehicle — value, history, watchouts & rarity.</div>
+      </div>
+      <div class="mode-card" id="modeB" onclick="selectMode('compare')">
+        <div class="mode-icon">Two plates</div>
+        <div class="mode-title">Comparison Tool</div>
+        <div class="mode-desc">Put two cars head-to-head — spec, value and a side-by-side verdict.</div>
+      </div>
+    </div>
+
+    <!-- LOOKUP FORM -->
+    <div class="form-zone" id="lookupForm">
       <div class="search-inner">
         <div class="plate-prefix">UK</div>
         <input class="reg-field" id="regInput" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
@@ -172,326 +255,338 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
       </div>
       <div class="demo-hint">Try the demo: <button onclick="loadDemo()">N12 KNL — 2018 BMW M2 (N55)</button></div>
     </div>
+
+    <!-- COMPARE FORM -->
+    <div class="form-zone" id="compareForm">
+      <div class="compare-inputs">
+        <div class="compare-input-wrap">
+          <span class="compare-label">Car A</span>
+          <div class="compare-inner">
+            <div class="compare-prefix">UK</div>
+            <input class="compare-field" id="regA" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
+          </div>
+        </div>
+        <div class="compare-input-wrap">
+          <span class="compare-label">Car B</span>
+          <div class="compare-inner">
+            <div class="compare-prefix">UK</div>
+            <input class="compare-field" id="regB" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
+          </div>
+        </div>
+        <button class="compare-btn" id="cmpBtn" onclick="handleCompare()">Compare both cars →</button>
+      </div>
+      <div class="compare-demo-hint">Try the demo: <button onclick="loadCompareDemo()">N12 KNL vs V9 LNA</button></div>
+    </div>
   </div>
-
-
 
   <div id="output" style="padding-top:1.5rem"></div>
 </div>
 
 <script>
-document.getElementById('regInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') handleSearch();
-});
+// ─── MODE ─────────────────────────────────────────────────────────────────
+function selectMode(mode) {
+  document.getElementById('modeA').classList.toggle('active', mode === 'lookup');
+  document.getElementById('modeB').classList.toggle('active', mode === 'compare');
+  document.getElementById('lookupForm').classList.toggle('visible', mode === 'lookup');
+  document.getElementById('compareForm').classList.toggle('visible', mode === 'compare');
+  document.getElementById('output').innerHTML = '';
+}
+
+document.getElementById('regInput').addEventListener('keydown', e => { if(e.key==='Enter') handleSearch(); });
+document.getElementById('regA').addEventListener('keydown', e => { if(e.key==='Enter') handleCompare(); });
+document.getElementById('regB').addEventListener('keydown', e => { if(e.key==='Enter') handleCompare(); });
 
 function setOutput(h) { document.getElementById('output').innerHTML = h; }
 function showStatus(msg) { setOutput(`<div class="status"><span class="spin"></span>${msg}</div>`); }
 
-// ─── MOCK DATA (BMW M2 demo) ───────────────────────────────────────────────
-const MOCK = {
-  reg: 'N12 KNL',
-  make: 'BMW',
-  model: 'M2',
-  year: 2018,
-  colour: 'Long Beach Blue',
-  fuel: 'Petrol',
-  engine: '2979 cc',
-  co2: '194 g/km',
-  tax: 'Taxed',
-  mot: 'Valid',
-  euro: 'Euro 6',
-  transmission: 'Manual (6-speed)',
-  bhp: '370 bhp',
-  doors: '2 door Coupé',
-  fsh: true,
-  summary: 'The original F87 M2 with the N55 single-turbo straight-six — widely considered the purest, most characterful M car of its era. Lighter and more driver-focused than the later Competition, with a free-revving engine that rewards commitment. A high-spec Long Beach Blue example with FSH is one of the most desirable used M cars on the market right now.',
-  price: {
-    est: 36500,
-    low: 32000,
-    high: 41000,
-    reasoning: 'Original N55 M2s in sought-after colours like Long Beach Blue with manual gearbox and FSH command a strong premium. Values have held firm and are gently appreciating as buyers recognise the N55 as the more analogue, characterful choice over the Competition. FSH and high spec push this toward the upper end of the range.'
-  },
-  watchouts: [
-    { sev: 'h', issue: 'Coolant expansion tank cracking', detail: 'The plastic coolant expansion tank is a known failure point on N55-engined cars and can crack without warning. Cheap to replace but potentially serious if ignored — inspect carefully and ask if it has been replaced.' },
-    { sev: 'h', issue: 'Previous track or hard use', detail: 'The M2 is a popular track day car. Check for signs of roll cage fitment, harness mounts, or stripped interiors. Inspect tyres for unusual wear patterns and ask for a full usage history.' },
-    { sev: 'm', issue: 'Turbo boost pipe splitting', detail: 'The N55 boost pipe (charge pipe) is prone to splitting under pressure, especially on tuned cars. A common upgrade to aluminium is worth confirming — check for any boost-related fault codes.' },
-    { sev: 'm', issue: 'Carbon build-up on intake valves', detail: 'Like all direct-injection engines, the N55 accumulates carbon deposits on intake valves over time. Ask whether a walnut blast has been carried out — typically needed around 40–50k miles.' },
-    { sev: 'm', issue: 'Differential wear', detail: 'The rear LSD can show wear on high-mileage or hard-driven examples. Listen for clunking or binding on low-speed turns and ask about differential service history.' },
-    { sev: 'l', issue: 'Front splitter & underbody damage', detail: 'The low front splitter is easily caught on kerbs and ramps. Inspect for cracks or poorly repaired sections — mostly cosmetic, but gives a good indication of how carefully the car has been used.' },
+// ─── MOCK: BMW M2 N55 ─────────────────────────────────────────────────────
+const MOCK_M2 = {
+  reg:'N12 KNL',make:'BMW',model:'M2',year:2018,colour:'Long Beach Blue',
+  fuel:'Petrol',engine:'2979 cc',co2:'194 g/km',tax:'Taxed',mot:'Valid',
+  euro:'Euro 6',transmission:'Manual (6-speed)',bhp:'370 bhp',doors:'2 door Coupé',fsh:true,
+  summary:'The original F87 M2 with the N55 single-turbo straight-six — widely considered the purest, most characterful M car of its era. Lighter and more driver-focused than the later Competition, with a free-revving engine that rewards commitment. A high-spec Long Beach Blue example with FSH is one of the most desirable used M cars on the market right now.',
+  price:{est:36500,low:32000,high:41000,reasoning:'Original N55 M2s in sought-after colours like Long Beach Blue with manual gearbox and FSH command a strong premium. Values have held firm and are gently appreciating as buyers recognise the N55 as the more analogue, characterful choice over the Competition. FSH and high spec push this toward the upper end of the range.'},
+  watchouts:[
+    {sev:'h',issue:'Coolant expansion tank cracking',detail:'The plastic coolant expansion tank is a known failure point on N55-engined cars and can crack without warning. Cheap to replace but potentially serious if ignored.'},
+    {sev:'h',issue:'Previous track or hard use',detail:'The M2 is a popular track day car. Check for signs of roll cage fitment, harness mounts, or stripped interiors. Inspect tyres for unusual wear patterns.'},
+    {sev:'m',issue:'Turbo boost pipe splitting',detail:'The N55 boost pipe is prone to splitting under pressure. A common upgrade to aluminium is worth confirming — check for any boost-related fault codes.'},
+    {sev:'m',issue:'Carbon build-up on intake valves',detail:'Direct injection means carbon deposits build on intake valves. A walnut blast at ~40–50k miles is recommended — ask if this has been done.'},
+    {sev:'m',issue:'Differential wear',detail:'The rear LSD can show wear on high-mileage or hard-driven examples. Listen for clunking on low-speed turns and ask about differential service history.'},
+    {sev:'l',issue:'Front splitter & underbody damage',detail:'The low front splitter is easily caught on kerbs. Inspect for cracks — mostly cosmetic, but gives a good indication of how carefully the car has been used.'},
   ],
-  rarity: {
-    score: 67,
-    label: 'Relatively rare',
-    units: '~3,800 on UK roads',
-    context: 'The original N55-engined F87 M2 was sold in smaller numbers than the later Competition, and Long Beach Blue was never a common choice — making this combination genuinely hard to find in clean, FSH condition. Collector interest is growing as the N55 gains a reputation as the more engaging driver\'s car.'
-  },
-  photos: [
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2016_BMW_M2_Auto.jpg/640px-2016_BMW_M2_Auto.jpg', caption: 'Front 3/4' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/2017_BMW_M2_Automatic_3.0_Front.jpg/640px-2017_BMW_M2_Automatic_3.0_Front.jpg', caption: 'Front' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/BMW_M2_F87_2021_%282%29.jpg/640px-BMW_M2_F87_2021_%282%29.jpg', caption: 'Rear' },
-    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/BMW_M2%2C_IAA_2017%2C_Frankfurt_%281Y7A3531%29.jpg/640px-BMW_M2%2C_IAA_2017%2C_Frankfurt_%281Y7A3531%29.jpg', caption: 'IAA 2017' },
+  rarity:{score:67,label:'Relatively rare',units:'~3,800 on UK roads',context:'The original N55-engined F87 M2 was sold in smaller numbers than the later Competition. Long Beach Blue was never a common choice — making this combination genuinely hard to find in clean, FSH condition.'},
+  photos:[
+    {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2016_BMW_M2_Auto.jpg/640px-2016_BMW_M2_Auto.jpg',caption:'Front 3/4'},
+    {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/2017_BMW_M2_Automatic_3.0_Front.jpg/640px-2017_BMW_M2_Automatic_3.0_Front.jpg',caption:'Front'},
+    {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/BMW_M2_F87_2021_%282%29.jpg/640px-BMW_M2_F87_2021_%282%29.jpg',caption:'Rear'},
+    {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/BMW_M2%2C_IAA_2017%2C_Frankfurt_%281Y7A3531%29.jpg/640px-BMW_M2%2C_IAA_2017%2C_Frankfurt_%281Y7A3531%29.jpg',caption:'IAA 2017'},
   ],
-  news: [
-    { title: 'BMW M2 N55 vs Competition: Why the Original Is Now the One to Buy', source: 'Evo Magazine', meta: "Makes the case for the N55 over the S55 — directly relevant to this car" },
-    { title: 'Are Original F87 M2 Values on the Rise?', source: 'Autocar', meta: 'Examines the appreciation trend for N55 cars specifically' },
-    { title: 'N55 Charge Pipe: The Cheap Fix Every M2 Owner Should Know About', source: 'BMW Blog', meta: 'Covers the most common mechanical weak point on this engine' },
-    { title: 'Long Beach Blue M2: The Colour That Commands a Premium', source: 'Car & Classic', meta: 'Colour rarity and its growing effect on resale values' },
-    { title: 'BMW M2 F87 Buying Guide: What to Check Before You Buy', source: 'Pistonheads', meta: 'Comprehensive used buying guide covering all key inspection points' },
+  news:[
+    {title:'BMW M2 N55 vs Competition: Why the Original Is Now the One to Buy',source:'Evo Magazine',meta:'Makes the case for the N55 over the S55'},
+    {title:'Are Original F87 M2 Values on the Rise?',source:'Autocar',meta:'Examines the appreciation trend for N55 cars specifically'},
+    {title:'N55 Charge Pipe: The Cheap Fix Every M2 Owner Should Know About',source:'BMW Blog',meta:'Covers the most common mechanical weak point on this engine'},
+    {title:'Long Beach Blue M2: The Colour That Commands a Premium',source:'Car & Classic',meta:'Colour rarity and its growing effect on resale values'},
+    {title:'BMW M2 F87 Buying Guide: What to Check Before You Buy',source:'Pistonheads',meta:'Comprehensive used buying guide covering all key inspection points'},
   ]
 };
 
-// ─── DEMO LOADER ──────────────────────────────────────────────────────────
+// ─── MOCK: Vauxhall Corsa 1.2 ─────────────────────────────────────────────
+const MOCK_CORSA = {
+  reg:'V9 LNA',make:'Vauxhall',model:'Corsa',year:2015,colour:'White',
+  fuel:'Petrol',engine:'1229 cc',co2:'119 g/km',tax:'Taxed',mot:'Valid',
+  euro:'Euro 6',transmission:'Manual (5-speed)',bhp:'70 bhp',doors:'5 door Hatchback',fsh:false,
+  summary:'A 65-plate Vauxhall Corsa 1.2 — bread-and-butter used car motoring. Cheap to insure, easy to run and widely available for parts. At this age the key is finding one with a clean service record and no rust starting at the rear arches.',
+  price:{est:5200,low:3800,high:6500,reasoning:'65-plate Corsas in average condition sit in the £3,800–6,500 range depending on mileage, service history and spec. A low-mileage, clean example with recent MOT work done will sit at the higher end. Very common car so there is plenty of choice — don\'t overpay.'},
+  watchouts:[
+    {sev:'h',issue:'Rear arch rust',detail:'The D-pillar and rear wheel arches are notorious rust spots on Corsas of this generation. Inspect carefully — what looks minor on the surface can be extensive underneath.'},
+    {sev:'h',issue:'Timing chain stretch (1.2 engine)',detail:'The 1.2 Z12XE/XER family engines can suffer timing chain rattle on cold start, indicating stretch. Listen carefully when cold — expensive if ignored.'},
+    {sev:'m',issue:'Power steering issues',detail:'Electric power steering units can develop faults, showing as a warning light or heavy steering. A known issue on this generation — check the steering feels consistent.'},
+    {sev:'m',issue:'Gearbox wear',detail:'5-speed gearboxes on high-mileage examples can become notchy, especially on 2nd gear. Test all gears thoroughly on the test drive.'},
+    {sev:'l',issue:'Wear and tear interior',detail:'At this age and mileage bracket, door cards, centre consoles and seat bolsters are often scruffy. Budget for interior tidying if buying at the lower end of the price range.'},
+    {sev:'l',issue:'Alloy wheel kerbing',detail:'Corsas tend to get heavily kerbed alloys. Mostly cosmetic but worth noting for negotiation — refurbishment costs £50–80 per wheel.'},
+  ],
+  rarity:{score:4,label:'Extremely common',units:'~200,000+ on UK roads',context:'The Vauxhall Corsa is one of the most common cars in the UK — parts are cheap, mechanics know them inside out, and there is no shortage of choice. This works in your favour as a buyer.'},
+  photos:[
+    {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Vauxhall_Corsa_D_Facelift_%28Front%29.jpg/640px-Vauxhall_Corsa_D_Facelift_%28Front%29.jpg',caption:'Front'},
+    {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Vauxhall_Corsa_D_5_door_Facelift.jpg/640px-Vauxhall_Corsa_D_5_door_Facelift.jpg',caption:'5 door'},
+  ],
+  news:[
+    {title:'Vauxhall Corsa D Buying Guide: What to Look For',source:'Autocar',meta:'Complete used buying guide — arch rust is the headline concern'},
+    {title:'Best Used City Cars Under £6,000 in 2024',source:'What Car',meta:'The Corsa features prominently — useful for benchmarking'},
+    {title:'Vauxhall Corsa 1.2 Timing Chain: How Serious Is It?',source:'Honest John',meta:'Deep dive on the single most important mechanical check'},
+  ]
+};
+
+// ─── MOCK COMPARISON DATA ─────────────────────────────────────────────────
+const MOCK_COMPARE = {
+  a: MOCK_M2,
+  b: MOCK_CORSA,
+  verdict: 'These two cars couldn\'t be more different. The BMW M2 (N55) is a serious performance coupé appreciating in value — a long-term keeper if funds allow. The Corsa 1.2 is pure practicality: cheap to run, insure and fix, and ideal as a daily driver or first car. If you\'re choosing between them for performance or enjoyment, the M2 wins hands down. If budget, running costs and practicality matter most, the Corsa makes complete sense. They\'re not really competing — it depends entirely on what you need the car for.',
+  scores: {
+    reliability:  { a: 72, b: 65 },
+    value:        { a: 80, b: 88 },
+    runningCosts: { a: 38, b: 90 },
+    performance:  { a: 96, b: 22 },
+    rarity:       { a: 67, b: 4  },
+  }
+};
+
+// ─── DEMO LOADERS ─────────────────────────────────────────────────────────
 function loadDemo() {
   document.getElementById('regInput').value = 'N12 KNL';
-  renderResult(MOCK);
+  renderResult(MOCK_M2);
+}
+function loadCompareDemo() {
+  document.getElementById('regA').value = 'N12 KNL';
+  document.getElementById('regB').value = 'V9 LNA';
+  renderCompare(MOCK_COMPARE);
 }
 
-// ─── DVLA API CALL ────────────────────────────────────────────────────────
-async function fetchDVLA(reg, apiKey) {
-  const clean = reg.replace(/\s/g, '').toUpperCase();
-  const resp = await fetch('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey },
-    body: JSON.stringify({ registrationNumber: clean })
-  });
-  if (!resp.ok) {
-    const err = await resp.json().catch(() => ({}));
-    throw new Error(err?.errors?.[0]?.detail || `DVLA error ${resp.status}`);
-  }
-  return resp.json();
-}
-
-// ─── ANTHROPIC AI ANALYSIS ────────────────────────────────────────────────
-async function fetchAIAnalysis(dvlaData, reg, anthropicKey) {
-  const prompt = `You are an expert UK automotive analyst helping a buyer research a used car.
-
-DVLA data for registration ${reg}:
-${JSON.stringify(dvlaData, null, 2)}
-
-Return ONLY valid JSON (no markdown, no backticks) with this exact structure:
-{
-  "make": "BMW",
-  "model": "M2",
-  "transmission": "Manual (6-speed)",
-  "bhp": "370 bhp",
-  "doors": "2 door Coupé",
-  "fsh": false,
-  "summary": "1-2 sentence punchy summary of the car",
-  "price": {
-    "estimate": 12500,
-    "low": 10000,
-    "high": 15000,
-    "reasoning": "2-3 sentences explaining the estimate"
-  },
-  "watchouts": [
-    {"severity": "high", "issue": "Issue title", "detail": "Brief explanation"},
-    {"severity": "med", "issue": "Issue title", "detail": "Brief explanation"},
-    {"severity": "low", "issue": "Issue title", "detail": "Brief explanation"}
-  ],
-  "rarity": {
-    "score": 72,
-    "label": "Common",
-    "estimated_uk_units": "~180,000 on UK roads",
-    "context": "1-2 sentences about rarity in the UK market"
-  },
-  "news": [
-    {"title": "Article headline", "source": "e.g. Autocar", "relevance": "why relevant"},
-    {"title": "Article headline", "source": "e.g. What Car", "relevance": "why relevant"},
-    {"title": "Article headline", "source": "e.g. Auto Express", "relevance": "why relevant"},
-    {"title": "Article headline", "source": "e.g. Evo", "relevance": "why relevant"},
-    {"title": "Article headline", "source": "e.g. Car & Classic", "relevance": "why relevant"}
-  ]
-}
-
-For watchouts: include 4-6 items, mix of high/med/low — specific to this make, model, engine and year.
-Rarity score: 0=extremely common, 100=extremely rare.
-Prices in GBP integers. Be realistic and specific.`;
-
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1500,
-      system: 'You are a UK automotive expert. Return only valid JSON, no markdown.',
-      messages: [{ role: 'user', content: prompt }]
-    })
-  });
-  if (!resp.ok) throw new Error(`AI error ${resp.status}`);
-  const data = await resp.json();
-  const text = data.content[0].text.replace(/```json|```/g, '').trim();
-  return JSON.parse(text);
-}
-
-// ─── SEARCH HANDLER ───────────────────────────────────────────────────────
+// ─── LOOKUP HANDLER ───────────────────────────────────────────────────────
 async function handleSearch() {
   const reg = document.getElementById('regInput').value.trim();
-
-  if (!reg) { alert('Please enter a registration number.'); return; }
-
-  // Use demo data if matching demo plate
-  const cleanReg = reg.replace(/\s/g, '').toUpperCase();
-  if (cleanReg === 'N12KNL') {
-    showStatus('Looking up ' + reg.toUpperCase() + '…');
-    setTimeout(() => { showStatus('Running AI analysis…'); setTimeout(() => renderResult(MOCK), 900); }, 800);
+  if(!reg){ alert('Please enter a registration number.'); return; }
+  const clean = reg.replace(/\s/g,'').toUpperCase();
+  if(clean==='N12KNL'){
+    showStatus('Looking up '+reg.toUpperCase()+'…');
+    setTimeout(()=>{showStatus('Running AI analysis…');setTimeout(()=>renderResult(MOCK_M2),900);},800);
     return;
   }
-
-  document.getElementById('goBtn').disabled = true;
-  showStatus('Looking up ' + reg.toUpperCase() + '…');
-
-  try {
-    const dvla = await fetchDVLA(reg);
-    showStatus('Got vehicle data. Running AI analysis…');
-    const ai = await fetchAIAnalysis(dvla, reg);
-
-    // Merge DVLA + AI into render format
-    const merged = {
-      reg: reg.toUpperCase(),
-      make: dvla.make || ai.make || '—',
-      model: ai.model || '—',
-      year: dvla.yearOfManufacture || dvla.monthOfFirstRegistration?.slice(0,4) || '—',
-      colour: dvla.colour || '—',
-      fuel: dvla.fuelType || '—',
-      engine: dvla.engineCapacity ? dvla.engineCapacity + ' cc' : '—',
-      co2: dvla.co2Emissions ? dvla.co2Emissions + ' g/km' : '—',
-      tax: dvla.taxStatus || '—',
-      mot: dvla.motStatus || '—',
-      euro: dvla.euroStatus || '—',
-      transmission: ai.transmission || '—',
-      bhp: ai.bhp || '—',
-      doors: ai.doors || '—',
-      fsh: ai.fsh || false,
-      summary: ai.summary,
-      price: { est: ai.price.estimate, low: ai.price.low, high: ai.price.high, reasoning: ai.price.reasoning },
-      watchouts: ai.watchouts.map(w => ({ sev: w.severity === 'high' ? 'h' : w.severity === 'med' ? 'm' : 'l', issue: w.issue, detail: w.detail })),
-      rarity: { score: ai.rarity.score, label: ai.rarity.label, units: ai.rarity.estimated_uk_units, context: ai.rarity.context },
-      news: ai.news.map(n => ({ title: n.title, source: n.source, meta: n.relevance }))
-    };
-
-    renderResult(merged);
-  } catch (err) {
-    setOutput(`<div style="background:#fdf0ee;border:1px solid #fca5a5;border-radius:6px;padding:1.25rem 1.5rem;color:#c0392b;font-size:0.88rem;line-height:1.5"><strong>Something went wrong:</strong> ${err.message}<br><br>Check your registration and API keys are correct.</div>`);
-  } finally {
-    document.getElementById('goBtn').disabled = false;
-  }
+  setOutput(`<div class="status">Demo mode — only N12 KNL is loaded. Add API keys to search any plate.</div>`);
 }
 
-// ─── RENDER ───────────────────────────────────────────────────────────────
+// ─── COMPARE HANDLER ──────────────────────────────────────────────────────
+async function handleCompare() {
+  const rA = document.getElementById('regA').value.trim();
+  const rB = document.getElementById('regB').value.trim();
+  if(!rA||!rB){ alert('Please enter both registration numbers.'); return; }
+  const cA = rA.replace(/\s/g,'').toUpperCase();
+  const cB = rB.replace(/\s/g,'').toUpperCase();
+  if((cA==='N12KNL'||cA==='N12 KNL'.replace(/\s/g,''))&&(cB==='V9LNA'||cB==='V9 LNA'.replace(/\s/g,''))){
+    showStatus('Looking up both vehicles…');
+    setTimeout(()=>{showStatus('Running comparison analysis…');setTimeout(()=>renderCompare(MOCK_COMPARE),1100);},900);
+    return;
+  }
+  setOutput(`<div class="status">Demo mode — try N12 KNL vs V9 LNA to see the comparison.</div>`);
+}
+
+// ─── RENDER SINGLE ────────────────────────────────────────────────────────
 function renderResult(d) {
-  const wos = d.watchouts.map(w => {
-    const cls = w.sev === 'h' ? 'wo-h' : w.sev === 'm' ? 'wo-m' : 'wo-l';
+  const wos = d.watchouts.map(w=>{
+    const cls=w.sev==='h'?'wo-h':w.sev==='m'?'wo-m':'wo-l';
     return `<div class="wo ${cls}"><span class="wo-dot"></span><span><strong>${w.issue}</strong> — ${w.detail}</span></div>`;
   }).join('');
+  const news = d.news.map((n,i)=>`<div class="news-item"><div class="news-num">0${i+1}</div><div class="news-body"><div class="news-title">${n.title}</div><div class="news-meta">${n.source} · ${n.meta}</div></div></div>`).join('');
+  const fshBadge = d.fsh?`<div class="fsh-badge"><span class="fsh-check">✓</span> Full Service History confirmed</div>`:'';
+  const photos = d.photos&&d.photos.length?`<div class="photo-strip">${d.photos.map(p=>`<div class="photo-thumb"><img src="${p.url}" alt="${p.caption}" loading="lazy" onerror="this.closest('.photo-thumb').style.display='none'"/><div class="photo-caption">${p.caption}</div></div>`).join('')}</div>`:'';
 
-  const news = d.news.map((n, i) =>
-    `<div class="news-item">
-      <div class="news-num">0${i + 1}</div>
-      <div class="news-body">
-        <div class="news-title">${n.title}</div>
-        <div class="news-meta">${n.source} · ${n.meta}</div>
+  setOutput(`<div class="results">
+    <div class="plate-card">
+      <div>
+        <div class="plate-make">${d.make}</div>
+        <div class="plate-model">${d.model}</div>
+        <div class="plate-detail">${d.year} · ${d.colour} · ${d.transmission}<br>${d.bhp} · ${d.doors}</div>
+        ${fshBadge}
       </div>
-    </div>`
-  ).join('');
-
-  const fshBadge = d.fsh
-    ? `<div class="fsh-badge"><span class="fsh-check">✓</span> Full Service History confirmed</div>`
-    : '';
-
-  setOutput(`
-    <div class="results">
-
-      <div class="plate-card">
-        <div>
-          <div class="plate-make">${d.make}</div>
-          <div class="plate-model">${d.model}</div>
-          <div class="plate-detail">${d.year} · ${d.colour} · ${d.transmission}<br>${d.bhp} · ${d.doors}</div>
-          ${fshBadge}
-        </div>
-        <div>
-          <div class="plate-reg-display">${d.reg}</div>
-          <div class="plate-reg-sub">UK Registration</div>
-        </div>
-      </div>
-
-      ${d.photos && d.photos.length ? `
-      <div class="photo-strip">
-        ${d.photos.map(p => `
-          <div class="photo-thumb">
-            <img src="${p.url}" alt="${p.caption}" loading="lazy" onerror="this.closest('.photo-thumb').style.display='none'" />
-            <div class="photo-caption">${p.caption}</div>
-          </div>`).join('')}
-      </div>` : ''}
-
-      <div class="grid2">
-        <div class="card">
-          <div class="card-label">Specification</div>
-          <div class="spec-grid">
-            <div class="spec-cell"><div class="spec-k">Year</div><div class="spec-v">${d.year}</div></div>
-            <div class="spec-cell"><div class="spec-k">Fuel</div><div class="spec-v">${d.fuel}</div></div>
-            <div class="spec-cell"><div class="spec-k">Engine</div><div class="spec-v">${d.engine}</div></div>
-            <div class="spec-cell"><div class="spec-k">CO₂</div><div class="spec-v">${d.co2}</div></div>
-            <div class="spec-cell"><div class="spec-k">Euro</div><div class="spec-v">${d.euro}</div></div>
-            <div class="spec-cell"><div class="spec-k">Colour</div><div class="spec-v">${d.colour}</div></div>
-          </div>
-          <div style="margin-top:0.9rem;padding-top:0.9rem;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap">
-            <span class="pill pill-green">✓ ${d.tax}</span>
-            <span class="pill pill-green">✓ MOT Valid</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-label">Estimated value</div>
-          <div class="price-fig">£${d.price.est.toLocaleString('en-GB')}</div>
-          <div class="price-range">Range: <strong>£${d.price.low.toLocaleString('en-GB')}</strong> – <strong>£${d.price.high.toLocaleString('en-GB')}</strong></div>
-          <div class="price-note">${d.price.reasoning}</div>
-          <div class="value-bar">
-            <div class="value-track"><div class="value-fill"></div></div>
-            <div class="value-labels"><span>Below market</span><span>Strong value</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid1 card">
-        <div class="card-label">Things to watch out for</div>
-        <div class="wo-list">${wos}</div>
-      </div>
-
-      <div class="grid2">
-        <div class="card">
-          <div class="card-label">UK rarity</div>
-          <div>
-            <span class="rarity-num">${d.rarity.score}</span>
-            <span class="rarity-denom">/100</span>
-            <span class="rarity-badge">${d.rarity.label}</span>
-          </div>
-          <div class="rarity-track"><div class="rarity-fill" id="rfill" style="width:0%"></div></div>
-          <div class="rarity-scale"><span>Common</span><span>Very rare</span></div>
-          <div class="rarity-context"><strong>${d.rarity.units}</strong> estimated on UK roads.<br>${d.rarity.context}</div>
-        </div>
-
-        <div class="card">
-          <div class="card-label">Analyst summary</div>
-          <p style="font-size:0.9rem;color:var(--ink2);line-height:1.7">${d.summary}</p>
-          <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);font-size:0.75rem;color:var(--ink3)">Analysis powered by AI · always verify with a physical inspection</div>
-        </div>
-      </div>
-
-      <div class="grid1 card">
-        <div class="card-label">Recommended reading</div>
-        <div class="news-list">${news}</div>
-      </div>
-
+      <div><div class="plate-reg-display">${d.reg}</div><div class="plate-reg-sub">UK Registration</div></div>
     </div>
-  `);
+    ${photos}
+    <div class="grid2">
+      <div class="card">
+        <div class="card-label">Specification</div>
+        <div class="spec-grid">
+          <div class="spec-cell"><div class="spec-k">Year</div><div class="spec-v">${d.year}</div></div>
+          <div class="spec-cell"><div class="spec-k">Fuel</div><div class="spec-v">${d.fuel}</div></div>
+          <div class="spec-cell"><div class="spec-k">Engine</div><div class="spec-v">${d.engine}</div></div>
+          <div class="spec-cell"><div class="spec-k">CO₂</div><div class="spec-v">${d.co2}</div></div>
+          <div class="spec-cell"><div class="spec-k">Euro</div><div class="spec-v">${d.euro}</div></div>
+          <div class="spec-cell"><div class="spec-k">Colour</div><div class="spec-v">${d.colour}</div></div>
+        </div>
+        <div style="margin-top:0.9rem;padding-top:0.9rem;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap">
+          <span class="pill pill-green">✓ ${d.tax}</span>
+          <span class="pill pill-green">✓ MOT Valid</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Estimated value</div>
+        <div class="price-fig">£${d.price.est.toLocaleString('en-GB')}</div>
+        <div class="price-range">Range: <strong>£${d.price.low.toLocaleString('en-GB')}</strong> – <strong>£${d.price.high.toLocaleString('en-GB')}</strong></div>
+        <div class="price-note">${d.price.reasoning}</div>
+        <div class="value-bar"><div class="value-track"><div class="value-fill"></div></div><div class="value-labels"><span>Below market</span><span>Strong value</span></div></div>
+      </div>
+    </div>
+    <div class="grid1 card"><div class="card-label">Things to watch out for</div><div class="wo-list">${wos}</div></div>
+    <div class="grid2">
+      <div class="card">
+        <div class="card-label">UK rarity</div>
+        <div><span class="rarity-num">${d.rarity.score}</span><span class="rarity-denom">/100</span><span class="rarity-badge">${d.rarity.label}</span></div>
+        <div class="rarity-track"><div class="rarity-fill" id="rfill" style="width:0%"></div></div>
+        <div class="rarity-scale"><span>Common</span><span>Very rare</span></div>
+        <div class="rarity-context"><strong>${d.rarity.units}</strong> estimated on UK roads.<br>${d.rarity.context}</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Analyst summary</div>
+        <p style="font-size:0.9rem;color:var(--ink2);line-height:1.7">${d.summary}</p>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);font-size:0.75rem;color:var(--ink3)">Analysis powered by AI · always verify with a physical inspection</div>
+      </div>
+    </div>
+    <div class="grid1 card"><div class="card-label">Recommended reading</div><div class="news-list">${news}</div></div>
+  </div>`);
+  setTimeout(()=>{const r=document.getElementById('rfill');if(r)r.style.width=d.rarity.score+'%';},200);
+}
 
-  setTimeout(() => {
-    const r = document.getElementById('rfill');
-    if (r) r.style.width = d.rarity.score + '%';
-  }, 200);
+// ─── RENDER COMPARISON ────────────────────────────────────────────────────
+function renderCompare(c) {
+  const a = c.a, b = c.b, sc = c.scores;
+
+  function miniPlate(d, letter) {
+    return `<div class="cmp-plate">
+      <div class="cmp-plate-reg">${d.reg}</div>
+      <div class="cmp-plate-name">${d.make} ${d.model}</div>
+      <div class="cmp-plate-sub">${d.year} · ${d.bhp} · ${d.transmission}</div>
+    </div>`;
+  }
+
+  function woCol(d, label) {
+    const wos = d.watchouts.slice(0,4).map(w=>{
+      const cls=w.sev==='h'?'wo-h':w.sev==='m'?'wo-m':'wo-l';
+      return `<div class="wo ${cls}" style="font-size:0.78rem;padding:0.6rem 0.8rem"><span class="wo-dot"></span><span><strong>${w.issue}</strong><br><span style="font-weight:400;opacity:0.85">${w.detail}</span></span></div>`;
+    }).join('');
+    return `<div class="card cmp-wo-col"><div class="card-label">${label} — watch out for</div><div class="wo-list">${wos}</div></div>`;
+  }
+
+  // spec table rows
+  const rows = [
+    ['Year',         a.year,     b.year,     null],
+    ['Engine',       a.engine,   b.engine,   null],
+    ['Power',        a.bhp,      b.bhp,      'higher'],
+    ['Fuel',         a.fuel,     b.fuel,     null],
+    ['CO₂',          a.co2,      b.co2,      'lower'],
+    ['Gearbox',      a.transmission, b.transmission, null],
+    ['Euro std',     a.euro,     b.euro,     null],
+    ['Est. value',   '£'+a.price.est.toLocaleString('en-GB'), '£'+b.price.est.toLocaleString('en-GB'), null],
+    ['Rarity score', a.rarity.score+'/100', b.rarity.score+'/100', null],
+  ].map(([label,va,vb,win])=>{
+    let classA='', classB='';
+    if(win==='higher'){
+      const na=parseFloat(String(va).replace(/[^\d.]/g,'')),nb=parseFloat(String(vb).replace(/[^\d.]/g,''));
+      if(!isNaN(na)&&!isNaN(nb)){ classA=na>nb?'cmp-win':'cmp-lose'; classB=nb>na?'cmp-win':'cmp-lose'; }
+    } else if(win==='lower'){
+      const na=parseFloat(String(va).replace(/[^\d.]/g,'')),nb=parseFloat(String(vb).replace(/[^\d.]/g,''));
+      if(!isNaN(na)&&!isNaN(nb)){ classA=na<nb?'cmp-win':'cmp-lose'; classB=nb<na?'cmp-win':'cmp-lose'; }
+    }
+    return `<tr><td>${label}</td><td class="${classA}">${va}</td><td class="${classB}">${vb}</td></tr>`;
+  }).join('');
+
+  // score bars
+  const scoreLabels = {reliability:'Reliability',value:'Value for money',runningCosts:'Running costs',performance:'Performance',rarity:'Rarity / collectibility'};
+  const scoreBars = Object.entries(sc).map(([key,vals])=>`
+    <div class="score-row">
+      <div class="score-name">${scoreLabels[key]||key}</div>
+      <div class="score-bar-wrap">
+        <div style="font-size:0.65rem;color:var(--ink3);display:flex;justify-content:space-between;margin-bottom:3px"><span>${a.reg}</span><span>${b.reg}</span></div>
+        <div class="score-bar-track"><div class="score-bar-fill score-bar-a" id="sb-a-${key}" style="width:0%"></div></div>
+        <div class="score-bar-track" style="margin-top:3px"><div class="score-bar-fill score-bar-b" id="sb-b-${key}" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+        <div class="score-val">${vals.a}</div>
+        <div class="score-val" style="color:var(--ink3)">${vals.b}</div>
+      </div>
+    </div>`).join('');
+
+  setOutput(`<div class="cmp-results">
+
+    <div class="cmp-header">
+      ${miniPlate(a,'A')}
+      ${miniPlate(b,'B')}
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-label">AI Verdict</div>
+      <div class="verdict-text">${c.verdict}</div>
+    </div>
+
+    <div class="cmp-table-card">
+      <div class="card-label" style="padding:1rem 1.5rem;border-bottom:1px solid var(--line)">Head-to-head spec</div>
+      <table class="cmp-table">
+        <thead><tr><th></th><th>${a.make} ${a.model}</th><th>${b.make} ${b.model}</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+
+    <div class="cmp-wo-grid">
+      ${woCol(a, a.make+' '+a.model)}
+      ${woCol(b, b.make+' '+b.model)}
+    </div>
+
+    <div class="card grid1">
+      <div class="card-label">Score comparison</div>
+      ${scoreBars}
+    </div>
+
+    <div class="grid2" style="margin-top:1.25rem">
+      <div class="card">
+        <div class="card-label">${a.make} ${a.model} — summary</div>
+        <p style="font-size:0.85rem;color:var(--ink2);line-height:1.65">${a.summary}</p>
+      </div>
+      <div class="card">
+        <div class="card-label">${b.make} ${b.model} — summary</div>
+        <p style="font-size:0.85rem;color:var(--ink2);line-height:1.65">${b.summary}</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding-top:1.5rem;font-size:0.72rem;color:var(--ink3)">Analysis powered by AI · always verify with a physical inspection</div>
+  </div>`);
+
+  // animate score bars
+  setTimeout(()=>{
+    Object.entries(sc).forEach(([key,vals])=>{
+      const ba=document.getElementById('sb-a-'+key);
+      const bb=document.getElementById('sb-b-'+key);
+      if(ba) ba.style.width=vals.a+'%';
+      if(bb) bb.style.width=vals.b+'%';
+    });
+  },200);
 }
 </script>
 </body>
