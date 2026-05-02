@@ -128,19 +128,20 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .news-title{font-size:0.88rem;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:3px}
 .news-meta{font-size:0.72rem;color:var(--ink3)}
 
+/* PHOTO STRIP */
+.photo-strip{display:flex;gap:8px;margin-bottom:1.25rem;overflow-x:auto;padding-bottom:2px}
+.photo-strip::-webkit-scrollbar{height:3px}
+.photo-strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
+.photo-thumb{flex-shrink:0;width:180px;height:112px;border-radius:6px;overflow:hidden;border:1px solid var(--line);position:relative;cursor:pointer}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.2s ease;display:block}
+.photo-thumb:hover img{transform:scale(1.04)}
+.photo-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(13,13,13,0.55);color:#fff;font-size:0.6rem;letter-spacing:0.04em;padding:4px 7px;text-transform:uppercase}
+
 /* FSH BADGE */
 .fsh-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);color:var(--green);font-size:0.75rem;font-weight:500;padding:5px 12px;border-radius:4px;margin-top:0.75rem}
 .fsh-check{width:14px;height:14px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
 
-/* API KEY SECTION */
-.api-section{margin-top:2rem;padding:1.5rem;background:var(--white);border:1px solid var(--line);border-radius:6px}
-.api-section-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
-.api-fields{display:flex;flex-direction:column;gap:12px}
-.api-field label{display:block;font-size:0.72rem;color:var(--ink3);margin-bottom:4px;letter-spacing:0.04em}
-.api-field input{width:100%;font-family:'Barlow',sans-serif;font-size:0.82rem;padding:0.5rem 0.75rem;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);outline:none}
-.api-field input:focus{border-color:var(--ink)}
-.api-hint{font-size:0.7rem;color:var(--ink3);margin-top:3px;line-height:1.4}
-.api-hint a{color:var(--blue)}
+
 </style>
 </head>
 <body>
@@ -169,26 +170,11 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
         <input class="reg-field" id="regInput" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
         <button class="go-btn" id="goBtn" onclick="handleSearch()">Search →</button>
       </div>
-      <div class="demo-hint">Try the demo: <button onclick="loadDemo()">N12 KNL — 2018 BMW M2</button></div>
+      <div class="demo-hint">Try the demo: <button onclick="loadDemo()">N12 KNL — 2018 BMW M2 (N55)</button></div>
     </div>
   </div>
 
-  <!-- API KEY INPUTS — remove this section once keys are hardcoded or backend is in place -->
-  <div class="api-section">
-    <div class="api-section-label">API Keys (required for live lookups)</div>
-    <div class="api-fields">
-      <div class="api-field">
-        <label>DVLA Vehicle Enquiry API Key</label>
-        <input type="password" id="dvlaKey" placeholder="Paste your DVLA API key here" />
-        <div class="api-hint">Free from <a href="https://developer-portal.driver-vehicle-licensing.api.gov.uk/" target="_blank">driver-vehicle-licensing.api.gov.uk</a> — subscribe to "Vehicle Enquiry Service"</div>
-      </div>
-      <div class="api-field">
-        <label>Anthropic API Key (for AI analysis)</label>
-        <input type="password" id="anthropicKey" placeholder="Paste your Anthropic API key here" />
-        <div class="api-hint">From <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> — used for valuation, watchouts, rarity and news</div>
-      </div>
-    </div>
-  </div>
+
 
   <div id="output" style="padding-top:1.5rem"></div>
 </div>
@@ -210,41 +196,47 @@ const MOCK = {
   colour: 'Long Beach Blue',
   fuel: 'Petrol',
   engine: '2979 cc',
-  co2: '199 g/km',
+  co2: '194 g/km',
   tax: 'Taxed',
-  mot: 'Valid — expires Aug 2025',
+  mot: 'Valid',
   euro: 'Euro 6',
   transmission: 'Manual (6-speed)',
   bhp: '370 bhp',
   doors: '2 door Coupé',
   fsh: true,
-  summary: 'One of the last great analogue performance coupés — the F87 M2 with the S55 turbocharged straight-six is widely regarded as the most driver-focused M car of its generation. High spec with FSH is the sweet spot.',
+  summary: 'The original F87 M2 with the N55 single-turbo straight-six — widely considered the purest, most characterful M car of its era. Lighter and more driver-focused than the later Competition, with a free-revving engine that rewards commitment. A high-spec Long Beach Blue example with FSH is one of the most desirable used M cars on the market right now.',
   price: {
-    est: 38500,
-    low: 34000,
-    high: 43000,
-    reasoning: 'F87 M2s with FSH and high spec in Long Beach Blue (a sought-after colour) are commanding strong money. Manual gearbox cars attract a premium over DCT. Expect £34–43k depending on mileage — sub-30k miles with competition pack additions would push toward the upper end. Values have held well and show modest appreciation over the past 18 months.'
+    est: 36500,
+    low: 32000,
+    high: 41000,
+    reasoning: 'Original N55 M2s in sought-after colours like Long Beach Blue with manual gearbox and FSH command a strong premium. Values have held firm and are gently appreciating as buyers recognise the N55 as the more analogue, characterful choice over the Competition. FSH and high spec push this toward the upper end of the range.'
   },
   watchouts: [
-    { sev: 'h', issue: 'Rod bearing wear', detail: "The S55 engine's rod bearings are a known weak point under hard use. Ask for evidence of bearing inspection or replacement — critical check on any M2." },
-    { sev: 'h', issue: 'Coolant expansion tank', detail: 'Plastic coolant tanks are prone to cracking on S55-engined cars, leading to sudden coolant loss. A cheap fix but should be inspected closely.' },
-    { sev: 'm', issue: 'Oil consumption', detail: 'S55 engines can consume oil between services. Confirm owner monitors levels and check for blue smoke on cold start.' },
-    { sev: 'm', issue: 'Carbon build-up (port injection)', detail: 'Direct injection means carbon deposits build on intake valves. A walnut blast at ~40k miles is recommended — ask if this has been done.' },
-    { sev: 'm', issue: 'DSC/ABS module faults', detail: 'Electrical gremlins in the stability control module are occasionally reported. Check for any warning lights or recent dealer resets.' },
-    { sev: 'l', issue: 'Front splitter & underbody damage', detail: 'Low front splitters are easily caught on kerbs and speed humps. Inspect for cracks or repairs — mostly cosmetic but tells you how it\'s been driven.' },
+    { sev: 'h', issue: 'Coolant expansion tank cracking', detail: 'The plastic coolant expansion tank is a known failure point on N55-engined cars and can crack without warning. Cheap to replace but potentially serious if ignored — inspect carefully and ask if it has been replaced.' },
+    { sev: 'h', issue: 'Previous track or hard use', detail: 'The M2 is a popular track day car. Check for signs of roll cage fitment, harness mounts, or stripped interiors. Inspect tyres for unusual wear patterns and ask for a full usage history.' },
+    { sev: 'm', issue: 'Turbo boost pipe splitting', detail: 'The N55 boost pipe (charge pipe) is prone to splitting under pressure, especially on tuned cars. A common upgrade to aluminium is worth confirming — check for any boost-related fault codes.' },
+    { sev: 'm', issue: 'Carbon build-up on intake valves', detail: 'Like all direct-injection engines, the N55 accumulates carbon deposits on intake valves over time. Ask whether a walnut blast has been carried out — typically needed around 40–50k miles.' },
+    { sev: 'm', issue: 'Differential wear', detail: 'The rear LSD can show wear on high-mileage or hard-driven examples. Listen for clunking or binding on low-speed turns and ask about differential service history.' },
+    { sev: 'l', issue: 'Front splitter & underbody damage', detail: 'The low front splitter is easily caught on kerbs and ramps. Inspect for cracks or poorly repaired sections — mostly cosmetic, but gives a good indication of how carefully the car has been used.' },
   ],
   rarity: {
-    score: 64,
+    score: 67,
     label: 'Relatively rare',
-    units: '~4,200 on UK roads',
-    context: 'The F87 BMW M2 was produced in limited numbers for the UK market — significantly rarer than the M3 or M4. Long Beach Blue further restricts supply, making it one of the more collectible combinations. Demand consistently outstrips clean examples.'
+    units: '~3,800 on UK roads',
+    context: 'The original N55-engined F87 M2 was sold in smaller numbers than the later Competition, and Long Beach Blue was never a common choice — making this combination genuinely hard to find in clean, FSH condition. Collector interest is growing as the N55 gains a reputation as the more engaging driver\'s car.'
   },
+  photos: [
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2016_BMW_M2_Auto.jpg/640px-2016_BMW_M2_Auto.jpg', caption: 'Front 3/4' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/2017_BMW_M2_Automatic_3.0_Front.jpg/640px-2017_BMW_M2_Automatic_3.0_Front.jpg', caption: 'Front' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/BMW_M2_F87_2021_%282%29.jpg/640px-BMW_M2_F87_2021_%282%29.jpg', caption: 'Rear' },
+    { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/BMW_M2%2C_IAA_2017%2C_Frankfurt_%281Y7A3531%29.jpg/640px-BMW_M2%2C_IAA_2017%2C_Frankfurt_%281Y7A3531%29.jpg', caption: 'IAA 2017' },
+  ],
   news: [
-    { title: 'BMW M2 F87 vs GR86: The Last Analogue Heroes Compared', source: 'Evo Magazine', meta: "Compares driving feel — relevant for understanding what you're buying into" },
-    { title: 'Are F87 M2 Values Rising? A Used Market Analysis', source: 'Autocar', meta: 'Examines appreciation trend — useful for buy/sell timing' },
-    { title: 'S55 Rod Bearing: Everything You Need to Know Before Buying', source: 'BMW Blog', meta: 'Deep dive on the most critical mechanical issue to check' },
-    { title: 'Long Beach Blue M2: Why Colour Matters for Resale', source: 'Car & Classic', meta: 'Colour rarity and its effect on future value' },
-    { title: 'BMW M2 Competition vs Standard M2: Which to Buy in 2024?', source: 'What Car', meta: 'Helps benchmark this car against its successor' },
+    { title: 'BMW M2 N55 vs Competition: Why the Original Is Now the One to Buy', source: 'Evo Magazine', meta: "Makes the case for the N55 over the S55 — directly relevant to this car" },
+    { title: 'Are Original F87 M2 Values on the Rise?', source: 'Autocar', meta: 'Examines the appreciation trend for N55 cars specifically' },
+    { title: 'N55 Charge Pipe: The Cheap Fix Every M2 Owner Should Know About', source: 'BMW Blog', meta: 'Covers the most common mechanical weak point on this engine' },
+    { title: 'Long Beach Blue M2: The Colour That Commands a Premium', source: 'Car & Classic', meta: 'Colour rarity and its growing effect on resale values' },
+    { title: 'BMW M2 F87 Buying Guide: What to Check Before You Buy', source: 'Pistonheads', meta: 'Comprehensive used buying guide covering all key inspection points' },
   ]
 };
 
@@ -337,8 +329,6 @@ Prices in GBP integers. Be realistic and specific.`;
 // ─── SEARCH HANDLER ───────────────────────────────────────────────────────
 async function handleSearch() {
   const reg = document.getElementById('regInput').value.trim();
-  const dvlaKey = document.getElementById('dvlaKey').value.trim();
-  const anthropicKey = document.getElementById('anthropicKey').value.trim();
 
   if (!reg) { alert('Please enter a registration number.'); return; }
 
@@ -350,18 +340,13 @@ async function handleSearch() {
     return;
   }
 
-  if (!dvlaKey || !anthropicKey) {
-    alert('Please enter both API keys to search live plates.');
-    return;
-  }
-
   document.getElementById('goBtn').disabled = true;
-  showStatus('Looking up ' + reg.toUpperCase() + ' with DVLA…');
+  showStatus('Looking up ' + reg.toUpperCase() + '…');
 
   try {
-    const dvla = await fetchDVLA(reg, dvlaKey);
-    showStatus('Got DVLA data. Running AI analysis…');
-    const ai = await fetchAIAnalysis(dvla, reg, anthropicKey);
+    const dvla = await fetchDVLA(reg);
+    showStatus('Got vehicle data. Running AI analysis…');
+    const ai = await fetchAIAnalysis(dvla, reg);
 
     // Merge DVLA + AI into render format
     const merged = {
@@ -431,6 +416,15 @@ function renderResult(d) {
           <div class="plate-reg-sub">UK Registration</div>
         </div>
       </div>
+
+      ${d.photos && d.photos.length ? `
+      <div class="photo-strip">
+        ${d.photos.map(p => `
+          <div class="photo-thumb">
+            <img src="${p.url}" alt="${p.caption}" loading="lazy" onerror="this.closest('.photo-thumb').style.display='none'" />
+            <div class="photo-caption">${p.caption}</div>
+          </div>`).join('')}
+      </div>` : ''}
 
       <div class="grid2">
         <div class="card">
