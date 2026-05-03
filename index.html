@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -48,9 +49,9 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .form-zone{padding:1.5rem 0 0;display:none}
 .form-zone.visible{display:block}
 
-/* SEARCH (single) */
+/* SEARCH */
 .search-inner{display:flex;gap:0;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;background:var(--white)}
-.plate-prefix{background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0 14px;display:flex;align-items:center;border-right:1.5px solid var(--ink)}
+.plate-prefix{background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0 14px;display:flex;align-items:center;}
 .reg-field{flex:1;font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1rem;border:none;outline:none;color:var(--ink);background:transparent}
 .reg-field::placeholder{color:#ccc;font-weight:300}
 .go-btn{background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0 1.5rem;border:none;cursor:pointer;transition:opacity 0.15s;white-space:nowrap}
@@ -61,7 +62,6 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 
 /* COMPARISON FORM */
 .compare-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.compare-input-wrap{}
 .compare-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;display:block}
 .compare-inner{display:flex;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;background:var(--white)}
 .compare-prefix{background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0 10px;display:flex;align-items:center}
@@ -69,7 +69,6 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .compare-field::placeholder{color:#ccc;font-weight:300;font-size:1.2rem}
 .compare-btn{grid-column:1/-1;background:var(--ink);color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.8rem;border:none;border-radius:4px;cursor:pointer;transition:opacity 0.15s}
 .compare-btn:hover{opacity:0.8}
-.compare-btn:disabled{opacity:0.35;cursor:not-allowed}
 .compare-demo-hint{font-size:0.75rem;color:var(--ink3);margin-top:0.6rem}
 .compare-demo-hint button{background:none;border:none;color:var(--blue);font-size:0.75rem;cursor:pointer;font-family:'Barlow',sans-serif;text-decoration:underline}
 
@@ -82,7 +81,7 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .results{animation:fadeUp 0.4s ease both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* PLATE HERO CARD */
+/* PLATE CARD */
 .plate-card{background:var(--ink);color:var(--white);border-radius:6px;padding:2rem;margin-bottom:1.25rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end}
 .plate-make{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;opacity:0.45;margin-bottom:0.4rem}
 .plate-model{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:0.5rem}
@@ -90,22 +89,23 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .plate-reg-display{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:700;letter-spacing:0.14em;background:var(--white);color:var(--ink);padding:0.3rem 1rem;border-radius:4px;text-align:center;line-height:1.1}
 .plate-reg-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-align:center;opacity:0.5;margin-top:4px}
 
-/* GRID CARDS */
+/* GRID */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
 .grid1{margin-bottom:1.25rem}
 .card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.5rem}
 .card-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
 
-/* SPEC GRID */
+/* SPEC */
 .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .spec-cell{padding:0.6rem 0.75rem;background:var(--paper);border-radius:4px}
 .spec-k{font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink3);margin-bottom:2px}
 .spec-v{font-size:0.9rem;font-weight:500;color:var(--ink)}
 
-/* STATUS PILLS */
+/* PILLS */
 .pill{display:inline-block;font-size:0.7rem;font-weight:500;letter-spacing:0.04em;padding:3px 9px;border-radius:3px}
 .pill-green{background:var(--green-bg);color:var(--green)}
 .pill-red{background:var(--red-bg);color:var(--red)}
+.pill-amber{background:var(--amber-bg);color:var(--amber)}
 
 /* PRICE */
 .price-fig{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;font-weight:700;line-height:1;letter-spacing:-0.01em;color:var(--ink);margin-bottom:0.25rem}
@@ -150,7 +150,7 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .photo-strip{display:flex;gap:8px;margin-bottom:1.25rem;overflow-x:auto;padding-bottom:2px}
 .photo-strip::-webkit-scrollbar{height:3px}
 .photo-strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:2px}
-.photo-thumb{flex-shrink:0;width:180px;height:112px;border-radius:6px;overflow:hidden;border:1px solid var(--line);position:relative;cursor:pointer}
+.photo-thumb{flex-shrink:0;width:180px;height:112px;border-radius:6px;overflow:hidden;border:1px solid var(--line);position:relative}
 .photo-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.2s ease;display:block}
 .photo-thumb:hover img{transform:scale(1.04)}
 .photo-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(13,13,13,0.55);color:#fff;font-size:0.6rem;letter-spacing:0.04em;padding:4px 7px;text-transform:uppercase}
@@ -159,24 +159,75 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .fsh-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);color:var(--green);font-size:0.75rem;font-weight:500;padding:5px 12px;border-radius:4px;margin-top:0.75rem}
 .fsh-check{width:14px;height:14px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
 
-/* ── COMPARISON RESULTS ────────────────────────────────── */
-.cmp-results{animation:fadeUp 0.4s ease both}
+/* RUNNING COSTS */
+.cost-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.cost-item{background:var(--paper);border-radius:5px;padding:0.75rem 0.9rem;display:flex;justify-content:space-between;align-items:center}
+.cost-label{font-size:0.75rem;color:var(--ink3)}
+.cost-val{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+.cost-total{margin-top:10px;background:var(--ink);color:#fff;border-radius:5px;padding:0.75rem 0.9rem;display:flex;justify-content:space-between;align-items:center}
+.cost-total .cost-label{color:rgba(255,255,255,0.55)}
+.cost-total .cost-val{color:#fff;font-size:1.3rem}
 
-/* top mini plates */
+/* MILEAGE CHECK */
+.mileage-check{display:flex;gap:14px;align-items:flex-start;padding:1rem;border-radius:6px}
+.mileage-ok{background:var(--green-bg)}
+.mileage-warn{background:var(--amber-bg)}
+.mileage-flag{background:var(--red-bg)}
+.mileage-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.mileage-title{font-weight:500;font-size:0.88rem;margin-bottom:3px}
+.mileage-ok .mileage-title{color:var(--green)}
+.mileage-warn .mileage-title{color:var(--amber)}
+.mileage-flag .mileage-title{color:var(--red)}
+.mileage-desc{font-size:0.8rem;line-height:1.55;color:var(--ink2)}
+
+/* ── AI CHAT ─────────────────────────────────────────────────────── */
+.chat-section{margin-bottom:1.25rem}
+.chat-card{background:var(--ink);border-radius:6px;overflow:hidden}
+.chat-header{padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.08)}
+.chat-header-left{display:flex;align-items:center;gap:10px}
+.chat-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.chat-title{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.9)}
+.chat-sub{font-size:0.7rem;color:rgba(255,255,255,0.35)}
+.chat-messages{padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:12px;max-height:340px;overflow-y:auto;scroll-behavior:smooth}
+.chat-messages::-webkit-scrollbar{width:3px}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px}
+.msg{display:flex;gap:10px;animation:fadeUp 0.25s ease both}
+.msg-ai{align-items:flex-start}
+.msg-user{align-items:flex-start;flex-direction:row-reverse}
+.msg-avatar{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;margin-top:1px}
+.msg-ai .msg-avatar{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7)}
+.msg-user .msg-avatar{background:rgba(255,255,255,0.2);color:#fff}
+.msg-bubble{max-width:82%;padding:0.65rem 0.9rem;border-radius:10px;font-size:0.84rem;line-height:1.6}
+.msg-ai .msg-bubble{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.88);border-radius:4px 10px 10px 10px}
+.msg-user .msg-bubble{background:rgba(255,255,255,0.18);color:#fff;border-radius:10px 4px 10px 10px}
+.msg-typing .msg-bubble{display:flex;gap:4px;align-items:center;padding:0.75rem 1rem}
+.typing-dot{width:5px;height:5px;background:rgba(255,255,255,0.4);border-radius:50%;animation:tdot 1.2s infinite}
+.typing-dot:nth-child(2){animation-delay:0.2s}
+.typing-dot:nth-child(3){animation-delay:0.4s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+.chat-footer{padding:0.9rem 1.25rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px}
+.chat-input{flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:6px;color:#fff;font-family:'Barlow',sans-serif;font-size:0.85rem;padding:0.6rem 0.85rem;outline:none;transition:border-color 0.15s}
+.chat-input::placeholder{color:rgba(255,255,255,0.25)}
+.chat-input:focus{border-color:rgba(255,255,255,0.3)}
+.chat-send{background:rgba(255,255,255,0.15);color:#fff;border:none;border-radius:6px;padding:0 1rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.15s;white-space:nowrap}
+.chat-send:hover{background:rgba(255,255,255,0.22)}
+.chat-send:disabled{opacity:0.35;cursor:not-allowed}
+.chat-pills{display:flex;gap:6px;padding:0 1.25rem 0.9rem;flex-wrap:wrap}
+.chat-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.65);font-size:0.72rem;padding:4px 10px;border-radius:20px;cursor:pointer;transition:all 0.15s;font-family:'Barlow',sans-serif}
+.chat-pill:hover{background:rgba(255,255,255,0.14);color:#fff}
+
+/* COMPARISON */
+.cmp-results{animation:fadeUp 0.4s ease both}
 .cmp-header{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
 .cmp-plate{background:var(--ink);color:#fff;border-radius:6px;padding:1.25rem 1.5rem}
 .cmp-plate-reg{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:0.12em;background:#fff;color:var(--ink);display:inline-block;padding:2px 10px;border-radius:3px;margin-bottom:6px}
 .cmp-plate-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.02em}
 .cmp-plate-sub{font-size:0.75rem;opacity:0.5;margin-top:2px}
-
-/* verdict banner */
 .verdict{background:var(--green-bg);border:1px solid #bbf7d0;border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
 .verdict-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem}
 .verdict-text{font-size:0.9rem;color:var(--ink2);line-height:1.65}
-
-/* comparison table card */
 .cmp-table-card{background:var(--white);border:1px solid var(--line);border-radius:6px;margin-bottom:1.25rem;overflow:hidden}
-.cmp-table-card .card-label{padding:1rem 1.5rem;margin-bottom:0;border-radius:0}
 .cmp-table{width:100%;border-collapse:collapse}
 .cmp-table th{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);padding:0.6rem 1.5rem;background:var(--paper);border-bottom:1px solid var(--line);text-align:left}
 .cmp-table th:not(:first-child){text-align:center}
@@ -184,17 +235,9 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .cmp-table tr:last-child td{border-bottom:none}
 .cmp-table td:first-child{color:var(--ink3);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;width:30%}
 .cmp-table td:not(:first-child){text-align:center;font-weight:500;color:var(--ink)}
-.cmp-win{color:var(--green);font-weight:500}
+.cmp-win{color:var(--green)}
 .cmp-lose{color:var(--ink3);font-weight:400}
-
-/* side by side watchouts */
 .cmp-wo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
-.cmp-wo-col .card-label{margin-bottom:0.75rem}
-
-/* score cards */
-.cmp-scores{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
-.score-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
-.score-label{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem}
 .score-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .score-row:last-child{margin-bottom:0}
 .score-name{font-size:0.75rem;color:var(--ink2);min-width:80px}
@@ -206,8 +249,8 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 .score-val{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;min-width:28px;text-align:right}
 
 @media(max-width:560px){
-  .mode-selector,.compare-inputs,.cmp-header,.cmp-wo-grid,.cmp-scores,.grid2{grid-template-columns:1fr}
-  .plate-card{grid-template-columns:1fr}
+  .mode-selector,.compare-inputs,.cmp-header,.cmp-wo-grid,.grid2,.cost-grid{grid-template-columns:1fr}
+  .plate-card,.compare-btn{grid-template-columns:1fr}
   .compare-btn{grid-column:1}
 }
 </style>
@@ -226,13 +269,9 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 
   <div class="hero">
     <div class="hero-top">
-      <div>
-        <div class="hero-headline">Know your<br><span>car before</span><br>you buy.</div>
-      </div>
+      <div><div class="hero-headline">Know your<br><span>car before</span><br>you buy.</div></div>
       <div class="hero-sub">Enter any UK registration plate. Get specs, estimated value, known issues, rarity and more — instantly.</div>
     </div>
-
-    <!-- MODE SELECTOR -->
     <div class="mode-selector">
       <div class="mode-card" id="modeA" onclick="selectMode('lookup')">
         <div class="mode-icon">Single plate</div>
@@ -245,35 +284,31 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
         <div class="mode-desc">Put two cars head-to-head — spec, value and a side-by-side verdict.</div>
       </div>
     </div>
-
-    <!-- LOOKUP FORM -->
     <div class="form-zone" id="lookupForm">
       <div class="search-inner">
         <div class="plate-prefix">UK</div>
-        <input class="reg-field" id="regInput" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
+        <input class="reg-field" id="regInput" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off"/>
         <button class="go-btn" id="goBtn" onclick="handleSearch()">Search →</button>
       </div>
       <div class="demo-hint">Try the demo: <button onclick="loadDemo()">N12 KNL — 2018 BMW M2 (N55)</button></div>
     </div>
-
-    <!-- COMPARE FORM -->
     <div class="form-zone" id="compareForm">
       <div class="compare-inputs">
-        <div class="compare-input-wrap">
+        <div>
           <span class="compare-label">Car A</span>
           <div class="compare-inner">
             <div class="compare-prefix">UK</div>
-            <input class="compare-field" id="regA" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
+            <input class="compare-field" id="regA" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off"/>
           </div>
         </div>
-        <div class="compare-input-wrap">
+        <div>
           <span class="compare-label">Car B</span>
           <div class="compare-inner">
             <div class="compare-prefix">UK</div>
-            <input class="compare-field" id="regB" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off" />
+            <input class="compare-field" id="regB" type="text" placeholder="AB12 CDE" maxlength="8" autocomplete="off"/>
           </div>
         </div>
-        <button class="compare-btn" id="cmpBtn" onclick="handleCompare()">Compare both cars →</button>
+        <button class="compare-btn" onclick="handleCompare()">Compare both cars →</button>
       </div>
       <div class="compare-demo-hint">Try the demo: <button onclick="loadCompareDemo()">N12 KNL vs V9 LNA</button></div>
     </div>
@@ -283,29 +318,51 @@ body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);mi
 </div>
 
 <script>
+// ─── STATE ────────────────────────────────────────────────────────────────
+let currentCar = null;
+let chatHistory = [];
+let chatBusy = false;
+
 // ─── MODE ─────────────────────────────────────────────────────────────────
-function selectMode(mode) {
-  document.getElementById('modeA').classList.toggle('active', mode === 'lookup');
-  document.getElementById('modeB').classList.toggle('active', mode === 'compare');
-  document.getElementById('lookupForm').classList.toggle('visible', mode === 'lookup');
-  document.getElementById('compareForm').classList.toggle('visible', mode === 'compare');
-  document.getElementById('output').innerHTML = '';
+function selectMode(mode){
+  document.getElementById('modeA').classList.toggle('active',mode==='lookup');
+  document.getElementById('modeB').classList.toggle('active',mode==='compare');
+  document.getElementById('lookupForm').classList.toggle('visible',mode==='lookup');
+  document.getElementById('compareForm').classList.toggle('visible',mode==='compare');
+  document.getElementById('output').innerHTML='';
+  currentCar=null; chatHistory=[];
 }
+document.getElementById('regInput').addEventListener('keydown',e=>{if(e.key==='Enter')handleSearch();});
+document.getElementById('regA').addEventListener('keydown',e=>{if(e.key==='Enter')handleCompare();});
+document.getElementById('regB').addEventListener('keydown',e=>{if(e.key==='Enter')handleCompare();});
 
-document.getElementById('regInput').addEventListener('keydown', e => { if(e.key==='Enter') handleSearch(); });
-document.getElementById('regA').addEventListener('keydown', e => { if(e.key==='Enter') handleCompare(); });
-document.getElementById('regB').addEventListener('keydown', e => { if(e.key==='Enter') handleCompare(); });
-
-function setOutput(h) { document.getElementById('output').innerHTML = h; }
-function showStatus(msg) { setOutput(`<div class="status"><span class="spin"></span>${msg}</div>`); }
+function setOutput(h){document.getElementById('output').innerHTML=h;}
+function showStatus(msg){setOutput(`<div class="status"><span class="spin"></span>${msg}</div>`);}
 
 // ─── MOCK: BMW M2 N55 ─────────────────────────────────────────────────────
 const MOCK_M2 = {
   reg:'N12 KNL',make:'BMW',model:'M2',year:2018,colour:'Long Beach Blue',
   fuel:'Petrol',engine:'2979 cc',co2:'194 g/km',tax:'Taxed',mot:'Valid',
   euro:'Euro 6',transmission:'Manual (6-speed)',bhp:'370 bhp',doors:'2 door Coupé',fsh:true,
+  mileage: 28400,
   summary:'The original F87 M2 with the N55 single-turbo straight-six — widely considered the purest, most characterful M car of its era. Lighter and more driver-focused than the later Competition, with a free-revving engine that rewards commitment. A high-spec Long Beach Blue example with FSH is one of the most desirable used M cars on the market right now.',
-  price:{est:36500,low:32000,high:41000,reasoning:'Original N55 M2s in sought-after colours like Long Beach Blue with manual gearbox and FSH command a strong premium. Values have held firm and are gently appreciating as buyers recognise the N55 as the more analogue, characterful choice over the Competition. FSH and high spec push this toward the upper end of the range.'},
+  price:{est:36500,low:32000,high:41000,reasoning:'Original N55 M2s in sought-after colours like Long Beach Blue with manual gearbox and FSH command a strong premium. Values have held firm and are gently appreciating as buyers recognise the N55 as the more analogue, characterful choice. FSH and high spec push this toward the upper end of the range.'},
+  runningCosts:{
+    fuel: 2340, tax: 565, insurance: 1200, servicing: 800, tyres: 600,
+    fuelNote:'Based on ~10,000 miles/yr at 28mpg combined and ~165p/litre',
+    taxNote:'CO₂ 194g/km — higher VED band',
+    insuranceNote:'Group 45 — expect £900–1,500 depending on age & history',
+    servicingNote:'BMW independent specialist, annual service + consumables',
+    tyresNote:'High-performance 245/35 R19 rears wear faster than average'
+  },
+  mileageCheck:{
+    status:'ok',
+    recorded: 28400,
+    expectedLow: 22000,
+    expectedHigh: 42000,
+    title:'Mileage looks consistent',
+    detail:'At 7 years old, average UK mileage would be ~77,000 miles. This car has covered ~28,400 — well below average, consistent with a cherished, lightly-used performance car. Verify against MOT history stamps when you inspect.'
+  },
   watchouts:[
     {sev:'h',issue:'Coolant expansion tank cracking',detail:'The plastic coolant expansion tank is a known failure point on N55-engined cars and can crack without warning. Cheap to replace but potentially serious if ignored.'},
     {sev:'h',issue:'Previous track or hard use',detail:'The M2 is a popular track day car. Check for signs of roll cage fitment, harness mounts, or stripped interiors. Inspect tyres for unusual wear patterns.'},
@@ -330,22 +387,39 @@ const MOCK_M2 = {
   ]
 };
 
-// ─── MOCK: Vauxhall Corsa 1.2 ─────────────────────────────────────────────
+// ─── MOCK: Vauxhall Corsa ─────────────────────────────────────────────────
 const MOCK_CORSA = {
   reg:'V9 LNA',make:'Vauxhall',model:'Corsa',year:2015,colour:'White',
   fuel:'Petrol',engine:'1229 cc',co2:'119 g/km',tax:'Taxed',mot:'Valid',
   euro:'Euro 6',transmission:'Manual (5-speed)',bhp:'70 bhp',doors:'5 door Hatchback',fsh:false,
+  mileage:54200,
   summary:'A 65-plate Vauxhall Corsa 1.2 — bread-and-butter used car motoring. Cheap to insure, easy to run and widely available for parts. At this age the key is finding one with a clean service record and no rust starting at the rear arches.',
-  price:{est:5200,low:3800,high:6500,reasoning:'65-plate Corsas in average condition sit in the £3,800–6,500 range depending on mileage, service history and spec. A low-mileage, clean example with recent MOT work done will sit at the higher end. Very common car so there is plenty of choice — don\'t overpay.'},
+  price:{est:5200,low:3800,high:6500,reasoning:'65-plate Corsas in average condition sit in the £3,800–6,500 range depending on mileage and history. A low-mileage clean example will sit at the higher end. Very common car so there is plenty of choice — don\'t overpay.'},
+  runningCosts:{
+    fuel:1180, tax:180, insurance:480, servicing:280, tyres:180,
+    fuelNote:'Based on ~10,000 miles/yr at 44mpg combined and ~165p/litre',
+    taxNote:'CO₂ 119g/km — mid VED band, reasonable annual cost',
+    insuranceNote:'Group 3 — one of the cheapest cars to insure in the UK',
+    servicingNote:'Any local garage — parts and labour are very affordable',
+    tyresNote:'Standard 185/65 R15 — budget tyres available from ~£40 each'
+  },
+  mileageCheck:{
+    status:'warn',
+    recorded:54200,
+    expectedLow:45000,
+    expectedHigh:80000,
+    title:'Mileage is slightly below average',
+    detail:'At 10 years old, average UK mileage would be ~100,000 miles. This car shows 54,200 — below average but not unusually so for a city runabout. Verify mileage progression against MOT records to confirm it\'s consistent year-on-year.'
+  },
   watchouts:[
     {sev:'h',issue:'Rear arch rust',detail:'The D-pillar and rear wheel arches are notorious rust spots on Corsas of this generation. Inspect carefully — what looks minor on the surface can be extensive underneath.'},
-    {sev:'h',issue:'Timing chain stretch (1.2 engine)',detail:'The 1.2 Z12XE/XER family engines can suffer timing chain rattle on cold start, indicating stretch. Listen carefully when cold — expensive if ignored.'},
-    {sev:'m',issue:'Power steering issues',detail:'Electric power steering units can develop faults, showing as a warning light or heavy steering. A known issue on this generation — check the steering feels consistent.'},
+    {sev:'h',issue:'Timing chain stretch (1.2 engine)',detail:'The 1.2 Z12XE/XER family engines can suffer timing chain rattle on cold start. Listen carefully when cold — expensive if ignored.'},
+    {sev:'m',issue:'Power steering issues',detail:'Electric power steering units can develop faults, showing as a warning light or heavy steering. A known issue on this generation.'},
     {sev:'m',issue:'Gearbox wear',detail:'5-speed gearboxes on high-mileage examples can become notchy, especially on 2nd gear. Test all gears thoroughly on the test drive.'},
-    {sev:'l',issue:'Wear and tear interior',detail:'At this age and mileage bracket, door cards, centre consoles and seat bolsters are often scruffy. Budget for interior tidying if buying at the lower end of the price range.'},
-    {sev:'l',issue:'Alloy wheel kerbing',detail:'Corsas tend to get heavily kerbed alloys. Mostly cosmetic but worth noting for negotiation — refurbishment costs £50–80 per wheel.'},
+    {sev:'l',issue:'Wear and tear interior',detail:'At this age, door cards, centre consoles and seat bolsters are often scruffy. Budget for interior tidying if buying at the lower end.'},
+    {sev:'l',issue:'Alloy wheel kerbing',detail:'Corsas tend to get heavily kerbed alloys. Mostly cosmetic but worth noting for negotiation.'},
   ],
-  rarity:{score:4,label:'Extremely common',units:'~200,000+ on UK roads',context:'The Vauxhall Corsa is one of the most common cars in the UK — parts are cheap, mechanics know them inside out, and there is no shortage of choice. This works in your favour as a buyer.'},
+  rarity:{score:4,label:'Extremely common',units:'~200,000+ on UK roads',context:'The Vauxhall Corsa is one of the most common cars in the UK — parts are cheap, mechanics know them inside out, and there is no shortage of choice.'},
   photos:[
     {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Vauxhall_Corsa_D_Facelift_%28Front%29.jpg/640px-Vauxhall_Corsa_D_Facelift_%28Front%29.jpg',caption:'Front'},
     {url:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Vauxhall_Corsa_D_5_door_Facelift.jpg/640px-Vauxhall_Corsa_D_5_door_Facelift.jpg',caption:'5 door'},
@@ -353,40 +427,25 @@ const MOCK_CORSA = {
   news:[
     {title:'Vauxhall Corsa D Buying Guide: What to Look For',source:'Autocar',meta:'Complete used buying guide — arch rust is the headline concern'},
     {title:'Best Used City Cars Under £6,000 in 2024',source:'What Car',meta:'The Corsa features prominently — useful for benchmarking'},
-    {title:'Vauxhall Corsa 1.2 Timing Chain: How Serious Is It?',source:'Honest John',meta:'Deep dive on the single most important mechanical check'},
+    {title:'Vauxhall Corsa 1.2 Timing Chain: How Serious Is It?',source:'Honest John',meta:'Deep dive on the most important mechanical check'},
   ]
 };
 
-// ─── MOCK COMPARISON DATA ─────────────────────────────────────────────────
 const MOCK_COMPARE = {
-  a: MOCK_M2,
-  b: MOCK_CORSA,
-  verdict: 'These two cars couldn\'t be more different. The BMW M2 (N55) is a serious performance coupé appreciating in value — a long-term keeper if funds allow. The Corsa 1.2 is pure practicality: cheap to run, insure and fix, and ideal as a daily driver or first car. If you\'re choosing between them for performance or enjoyment, the M2 wins hands down. If budget, running costs and practicality matter most, the Corsa makes complete sense. They\'re not really competing — it depends entirely on what you need the car for.',
-  scores: {
-    reliability:  { a: 72, b: 65 },
-    value:        { a: 80, b: 88 },
-    runningCosts: { a: 38, b: 90 },
-    performance:  { a: 96, b: 22 },
-    rarity:       { a: 67, b: 4  },
-  }
+  a:MOCK_M2, b:MOCK_CORSA,
+  verdict:'These two cars couldn\'t be more different. The BMW M2 (N55) is a serious performance coupé that is gently appreciating — a long-term keeper if funds allow. The Corsa 1.2 is pure practicality: cheap to run, insure and fix, ideal as a daily driver or first car. If you\'re choosing between them for performance or enjoyment, the M2 wins hands down. If budget, running costs and practicality matter most, the Corsa makes complete sense.',
+  scores:{reliability:{a:72,b:65},value:{a:80,b:88},runningCosts:{a:38,b:90},performance:{a:96,b:22},rarity:{a:67,b:4}}
 };
 
 // ─── DEMO LOADERS ─────────────────────────────────────────────────────────
-function loadDemo() {
-  document.getElementById('regInput').value = 'N12 KNL';
-  renderResult(MOCK_M2);
-}
-function loadCompareDemo() {
-  document.getElementById('regA').value = 'N12 KNL';
-  document.getElementById('regB').value = 'V9 LNA';
-  renderCompare(MOCK_COMPARE);
-}
+function loadDemo(){document.getElementById('regInput').value='N12 KNL';renderResult(MOCK_M2);}
+function loadCompareDemo(){document.getElementById('regA').value='N12 KNL';document.getElementById('regB').value='V9 LNA';renderCompare(MOCK_COMPARE);}
 
-// ─── LOOKUP HANDLER ───────────────────────────────────────────────────────
-async function handleSearch() {
-  const reg = document.getElementById('regInput').value.trim();
-  if(!reg){ alert('Please enter a registration number.'); return; }
-  const clean = reg.replace(/\s/g,'').toUpperCase();
+// ─── HANDLERS ─────────────────────────────────────────────────────────────
+async function handleSearch(){
+  const reg=document.getElementById('regInput').value.trim();
+  if(!reg){alert('Please enter a registration number.');return;}
+  const clean=reg.replace(/\s/g,'').toUpperCase();
   if(clean==='N12KNL'){
     showStatus('Looking up '+reg.toUpperCase()+'…');
     setTimeout(()=>{showStatus('Running AI analysis…');setTimeout(()=>renderResult(MOCK_M2),900);},800);
@@ -395,14 +454,12 @@ async function handleSearch() {
   setOutput(`<div class="status">Demo mode — only N12 KNL is loaded. Add API keys to search any plate.</div>`);
 }
 
-// ─── COMPARE HANDLER ──────────────────────────────────────────────────────
-async function handleCompare() {
-  const rA = document.getElementById('regA').value.trim();
-  const rB = document.getElementById('regB').value.trim();
-  if(!rA||!rB){ alert('Please enter both registration numbers.'); return; }
-  const cA = rA.replace(/\s/g,'').toUpperCase();
-  const cB = rB.replace(/\s/g,'').toUpperCase();
-  if((cA==='N12KNL'||cA==='N12 KNL'.replace(/\s/g,''))&&(cB==='V9LNA'||cB==='V9 LNA'.replace(/\s/g,''))){
+async function handleCompare(){
+  const rA=document.getElementById('regA').value.trim();
+  const rB=document.getElementById('regB').value.trim();
+  if(!rA||!rB){alert('Please enter both registrations.');return;}
+  const cA=rA.replace(/\s/g,'').toUpperCase(), cB=rB.replace(/\s/g,'').toUpperCase();
+  if(cA==='N12KNL'&&cB==='V9LNA'){
     showStatus('Looking up both vehicles…');
     setTimeout(()=>{showStatus('Running comparison analysis…');setTimeout(()=>renderCompare(MOCK_COMPARE),1100);},900);
     return;
@@ -411,14 +468,20 @@ async function handleCompare() {
 }
 
 // ─── RENDER SINGLE ────────────────────────────────────────────────────────
-function renderResult(d) {
-  const wos = d.watchouts.map(w=>{
+function renderResult(d){
+  currentCar=d; chatHistory=[];
+  const wos=d.watchouts.map(w=>{
     const cls=w.sev==='h'?'wo-h':w.sev==='m'?'wo-m':'wo-l';
     return `<div class="wo ${cls}"><span class="wo-dot"></span><span><strong>${w.issue}</strong> — ${w.detail}</span></div>`;
   }).join('');
-  const news = d.news.map((n,i)=>`<div class="news-item"><div class="news-num">0${i+1}</div><div class="news-body"><div class="news-title">${n.title}</div><div class="news-meta">${n.source} · ${n.meta}</div></div></div>`).join('');
-  const fshBadge = d.fsh?`<div class="fsh-badge"><span class="fsh-check">✓</span> Full Service History confirmed</div>`:'';
-  const photos = d.photos&&d.photos.length?`<div class="photo-strip">${d.photos.map(p=>`<div class="photo-thumb"><img src="${p.url}" alt="${p.caption}" loading="lazy" onerror="this.closest('.photo-thumb').style.display='none'"/><div class="photo-caption">${p.caption}</div></div>`).join('')}</div>`:'';
+  const news=d.news.map((n,i)=>`<div class="news-item"><div class="news-num">0${i+1}</div><div class="news-body"><div class="news-title">${n.title}</div><div class="news-meta">${n.source} · ${n.meta}</div></div></div>`).join('');
+  const fshBadge=d.fsh?`<div class="fsh-badge"><span class="fsh-check">✓</span> Full Service History confirmed</div>`:'';
+  const photos=d.photos&&d.photos.length?`<div class="photo-strip">${d.photos.map(p=>`<div class="photo-thumb"><img src="${p.url}" alt="${p.caption}" loading="lazy" onerror="this.closest('.photo-thumb').style.display='none'"/><div class="photo-caption">${p.caption}</div></div>`).join('')}</div>`:'';
+  const rc=d.runningCosts;
+  const totalCost=rc.fuel+rc.tax+rc.insurance+rc.servicing+rc.tyres;
+  const mc=d.mileageCheck;
+  const mcClass=mc.status==='ok'?'mileage-ok':mc.status==='warn'?'mileage-warn':'mileage-flag';
+  const mcIcon=mc.status==='ok'?'✓':mc.status==='warn'?'⚠':'✕';
 
   setOutput(`<div class="results">
     <div class="plate-card">
@@ -455,7 +518,39 @@ function renderResult(d) {
         <div class="value-bar"><div class="value-track"><div class="value-fill"></div></div><div class="value-labels"><span>Below market</span><span>Strong value</span></div></div>
       </div>
     </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-label">Annual running costs</div>
+        <div class="cost-grid">
+          <div class="cost-item"><span class="cost-label">⛽ Fuel</span><span class="cost-val">£${rc.fuel.toLocaleString()}</span></div>
+          <div class="cost-item"><span class="cost-label">📋 Road tax</span><span class="cost-val">£${rc.tax.toLocaleString()}</span></div>
+          <div class="cost-item"><span class="cost-label">🛡 Insurance</span><span class="cost-val">£${rc.insurance.toLocaleString()}</span></div>
+          <div class="cost-item"><span class="cost-label">🔧 Servicing</span><span class="cost-val">£${rc.servicing.toLocaleString()}</span></div>
+          <div class="cost-item"><span class="cost-label">🔄 Tyres</span><span class="cost-val">£${rc.tyres.toLocaleString()}</span></div>
+        </div>
+        <div class="cost-total"><span class="cost-label">Est. annual total</span><span class="cost-val">£${totalCost.toLocaleString()}</span></div>
+        <div style="margin-top:0.75rem;font-size:0.72rem;color:var(--ink3);line-height:1.5">${rc.fuelNote}<br>${rc.taxNote}</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Mileage sanity check</div>
+        <div class="mileage-check ${mcClass}">
+          <div class="mileage-icon">${mcIcon}</div>
+          <div>
+            <div class="mileage-title">${mc.title}</div>
+            <div class="mileage-desc">${mc.detail}</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+          <div class="spec-cell"><div class="spec-k">Recorded</div><div class="spec-v">${mc.recorded.toLocaleString()}</div></div>
+          <div class="spec-cell"><div class="spec-k">Avg low</div><div class="spec-v">${mc.expectedLow.toLocaleString()}</div></div>
+          <div class="spec-cell"><div class="spec-k">Avg high</div><div class="spec-v">${mc.expectedHigh.toLocaleString()}</div></div>
+        </div>
+      </div>
+    </div>
+
     <div class="grid1 card"><div class="card-label">Things to watch out for</div><div class="wo-list">${wos}</div></div>
+
     <div class="grid2">
       <div class="card">
         <div class="card-label">UK rarity</div>
@@ -470,57 +565,172 @@ function renderResult(d) {
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);font-size:0.75rem;color:var(--ink3)">Analysis powered by AI · always verify with a physical inspection</div>
       </div>
     </div>
+
     <div class="grid1 card"><div class="card-label">Recommended reading</div><div class="news-list">${news}</div></div>
+
+    <!-- AI CHAT -->
+    <div class="chat-section grid1">
+      <div class="chat-card">
+        <div class="chat-header">
+          <div class="chat-header-left">
+            <div class="chat-dot"></div>
+            <div>
+              <div class="chat-title">Ask the AI Expert</div>
+              <div class="chat-sub">${d.year} ${d.make} ${d.model} · ${d.bhp} · ${d.transmission}</div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg msg-ai">
+            <div class="msg-avatar">AI</div>
+            <div class="msg-bubble">I've analysed the <strong>${d.year} ${d.make} ${d.model}</strong> on plate <strong>${d.reg}</strong>. Ask me anything — test drive tips, negotiation tactics, running costs, common problems, or whether it's the right car for you.</div>
+          </div>
+        </div>
+        <div class="chat-pills" id="chatPills">
+          <span class="chat-pill" onclick="sendSuggestion(this)">What should I check on the test drive?</span>
+          <span class="chat-pill" onclick="sendSuggestion(this)">How much should I negotiate off?</span>
+          <span class="chat-pill" onclick="sendSuggestion(this)">Is this a good daily driver?</span>
+          <span class="chat-pill" onclick="sendSuggestion(this)">What are the biggest red flags to walk away for?</span>
+        </div>
+        <div class="chat-footer">
+          <input class="chat-input" id="chatInput" type="text" placeholder="Ask anything about this car…" autocomplete="off"/>
+          <button class="chat-send" id="chatSend" onclick="sendChat()">Send</button>
+        </div>
+      </div>
+    </div>
   </div>`);
+
   setTimeout(()=>{const r=document.getElementById('rfill');if(r)r.style.width=d.rarity.score+'%';},200);
+  document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat();});
+}
+
+// ─── CHAT ─────────────────────────────────────────────────────────────────
+function sendSuggestion(el){
+  document.getElementById('chatInput').value=el.textContent;
+  document.getElementById('chatPills').style.display='none';
+  sendChat();
+}
+
+function appendMsg(role,text){
+  const msgs=document.getElementById('chatMessages');
+  if(!msgs)return;
+  const div=document.createElement('div');
+  div.className=`msg msg-${role}`;
+  div.innerHTML=`<div class="msg-avatar">${role==='ai'?'AI':'You'}</div><div class="msg-bubble">${text}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function showTyping(){
+  const msgs=document.getElementById('chatMessages');
+  if(!msgs)return;
+  const div=document.createElement('div');
+  div.className='msg msg-ai msg-typing';
+  div.id='typingIndicator';
+  div.innerHTML=`<div class="msg-avatar">AI</div><div class="msg-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function removeTyping(){
+  const t=document.getElementById('typingIndicator');
+  if(t)t.remove();
+}
+
+async function sendChat(){
+  if(chatBusy||!currentCar)return;
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  input.value='';
+  chatBusy=true;
+  document.getElementById('chatSend').disabled=true;
+  document.getElementById('chatPills').style.display='none';
+
+  appendMsg('user',msg);
+  chatHistory.push({role:'user',content:msg});
+  showTyping();
+
+  const d=currentCar;
+  const systemPrompt=`You are an expert UK automotive analyst and buying advisor for Auto Search. You have full knowledge of the following vehicle:
+
+Registration: ${d.reg}
+Make/Model: ${d.year} ${d.make} ${d.model}
+Engine: ${d.engine}, ${d.bhp}
+Transmission: ${d.transmission}
+Colour: ${d.colour}
+Fuel: ${d.fuel}
+CO₂: ${d.co2}
+MOT: ${d.mot}
+Tax: ${d.tax}
+FSH: ${d.fsh?'Yes':'No'}
+Mileage: ${d.mileage?d.mileage.toLocaleString()+' miles':'unknown'}
+Estimated value: £${d.price.est.toLocaleString()} (range £${d.price.low.toLocaleString()}–£${d.price.high.toLocaleString()})
+Known issues: ${d.watchouts.map(w=>w.issue).join(', ')}
+Annual running costs: ~£${(d.runningCosts.fuel+d.runningCosts.tax+d.runningCosts.insurance+d.runningCosts.servicing+d.runningCosts.tyres).toLocaleString()}
+Mileage check: ${d.mileageCheck.title}
+Summary: ${d.summary}
+
+Answer questions conversationally and concisely. Be direct, honest and specific to THIS car. You are a knowledgeable friend, not a sales pitch. Keep replies to 2–4 short paragraphs max. Use UK English. Never make up specific facts you don't know.`;
+
+  try {
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:600,
+        system:systemPrompt,
+        messages:chatHistory
+      })
+    });
+    const data=await resp.json();
+    const reply=data.content[0].text;
+    chatHistory.push({role:'assistant',content:reply});
+    removeTyping();
+    appendMsg('ai',reply.replace(/\n\n/g,'<br><br>'));
+  } catch(e){
+    removeTyping();
+    appendMsg('ai','Sorry, I couldn\'t connect to the AI right now. Please check your Anthropic API key is configured in the backend.');
+  }
+  chatBusy=false;
+  document.getElementById('chatSend').disabled=false;
 }
 
 // ─── RENDER COMPARISON ────────────────────────────────────────────────────
-function renderCompare(c) {
-  const a = c.a, b = c.b, sc = c.scores;
-
-  function miniPlate(d, letter) {
-    return `<div class="cmp-plate">
-      <div class="cmp-plate-reg">${d.reg}</div>
-      <div class="cmp-plate-name">${d.make} ${d.model}</div>
-      <div class="cmp-plate-sub">${d.year} · ${d.bhp} · ${d.transmission}</div>
-    </div>`;
-  }
-
-  function woCol(d, label) {
-    const wos = d.watchouts.slice(0,4).map(w=>{
+function renderCompare(c){
+  const a=c.a,b=c.b,sc=c.scores;
+  function woCol(d,label){
+    const wos=d.watchouts.slice(0,4).map(w=>{
       const cls=w.sev==='h'?'wo-h':w.sev==='m'?'wo-m':'wo-l';
       return `<div class="wo ${cls}" style="font-size:0.78rem;padding:0.6rem 0.8rem"><span class="wo-dot"></span><span><strong>${w.issue}</strong><br><span style="font-weight:400;opacity:0.85">${w.detail}</span></span></div>`;
     }).join('');
-    return `<div class="card cmp-wo-col"><div class="card-label">${label} — watch out for</div><div class="wo-list">${wos}</div></div>`;
+    return `<div class="card"><div class="card-label">${label} — watch out for</div><div class="wo-list">${wos}</div></div>`;
   }
-
-  // spec table rows
-  const rows = [
-    ['Year',         a.year,     b.year,     null],
-    ['Engine',       a.engine,   b.engine,   null],
-    ['Power',        a.bhp,      b.bhp,      'higher'],
-    ['Fuel',         a.fuel,     b.fuel,     null],
-    ['CO₂',          a.co2,      b.co2,      'lower'],
-    ['Gearbox',      a.transmission, b.transmission, null],
-    ['Euro std',     a.euro,     b.euro,     null],
-    ['Est. value',   '£'+a.price.est.toLocaleString('en-GB'), '£'+b.price.est.toLocaleString('en-GB'), null],
-    ['Rarity score', a.rarity.score+'/100', b.rarity.score+'/100', null],
+  const rows=[
+    ['Year',a.year,b.year,null],
+    ['Engine',a.engine,b.engine,null],
+    ['Power',a.bhp,b.bhp,'higher'],
+    ['Fuel',a.fuel,b.fuel,null],
+    ['CO₂',a.co2,b.co2,'lower'],
+    ['Gearbox',a.transmission,b.transmission,null],
+    ['Euro std',a.euro,b.euro,null],
+    ['Est. value','£'+a.price.est.toLocaleString('en-GB'),'£'+b.price.est.toLocaleString('en-GB'),null],
+    ['Annual costs','£'+(a.runningCosts.fuel+a.runningCosts.tax+a.runningCosts.insurance+a.runningCosts.servicing+a.runningCosts.tyres).toLocaleString(),'£'+(b.runningCosts.fuel+b.runningCosts.tax+b.runningCosts.insurance+b.runningCosts.servicing+b.runningCosts.tyres).toLocaleString(),'lower'],
+    ['Rarity score',a.rarity.score+'/100',b.rarity.score+'/100',null],
   ].map(([label,va,vb,win])=>{
-    let classA='', classB='';
-    if(win==='higher'){
+    let cA='',cB='';
+    if(win==='higher'||win==='lower'){
       const na=parseFloat(String(va).replace(/[^\d.]/g,'')),nb=parseFloat(String(vb).replace(/[^\d.]/g,''));
-      if(!isNaN(na)&&!isNaN(nb)){ classA=na>nb?'cmp-win':'cmp-lose'; classB=nb>na?'cmp-win':'cmp-lose'; }
-    } else if(win==='lower'){
-      const na=parseFloat(String(va).replace(/[^\d.]/g,'')),nb=parseFloat(String(vb).replace(/[^\d.]/g,''));
-      if(!isNaN(na)&&!isNaN(nb)){ classA=na<nb?'cmp-win':'cmp-lose'; classB=nb<na?'cmp-win':'cmp-lose'; }
+      if(!isNaN(na)&&!isNaN(nb)){
+        const aWins=win==='higher'?na>nb:na<nb;
+        cA=aWins?'cmp-win':'cmp-lose'; cB=!aWins?'cmp-win':'cmp-lose';
+      }
     }
-    return `<tr><td>${label}</td><td class="${classA}">${va}</td><td class="${classB}">${vb}</td></tr>`;
+    return `<tr><td>${label}</td><td class="${cA}">${va}</td><td class="${cB}">${vb}</td></tr>`;
   }).join('');
-
-  // score bars
-  const scoreLabels = {reliability:'Reliability',value:'Value for money',runningCosts:'Running costs',performance:'Performance',rarity:'Rarity / collectibility'};
-  const scoreBars = Object.entries(sc).map(([key,vals])=>`
+  const scoreLabels={reliability:'Reliability',value:'Value for money',runningCosts:'Running costs',performance:'Performance',rarity:'Rarity'};
+  const scoreBars=Object.entries(sc).map(([key,vals])=>`
     <div class="score-row">
       <div class="score-name">${scoreLabels[key]||key}</div>
       <div class="score-bar-wrap">
@@ -528,24 +738,15 @@ function renderCompare(c) {
         <div class="score-bar-track"><div class="score-bar-fill score-bar-a" id="sb-a-${key}" style="width:0%"></div></div>
         <div class="score-bar-track" style="margin-top:3px"><div class="score-bar-fill score-bar-b" id="sb-b-${key}" style="width:0%"></div></div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-        <div class="score-val">${vals.a}</div>
-        <div class="score-val" style="color:var(--ink3)">${vals.b}</div>
-      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px"><div class="score-val">${vals.a}</div><div class="score-val" style="color:var(--ink3)">${vals.b}</div></div>
     </div>`).join('');
 
   setOutput(`<div class="cmp-results">
-
     <div class="cmp-header">
-      ${miniPlate(a,'A')}
-      ${miniPlate(b,'B')}
+      <div class="cmp-plate"><div class="cmp-plate-reg">${a.reg}</div><div class="cmp-plate-name">${a.make} ${a.model}</div><div class="cmp-plate-sub">${a.year} · ${a.bhp} · ${a.transmission}</div></div>
+      <div class="cmp-plate"><div class="cmp-plate-reg">${b.reg}</div><div class="cmp-plate-name">${b.make} ${b.model}</div><div class="cmp-plate-sub">${b.year} · ${b.bhp} · ${b.transmission}</div></div>
     </div>
-
-    <div class="verdict">
-      <div class="verdict-label">AI Verdict</div>
-      <div class="verdict-text">${c.verdict}</div>
-    </div>
-
+    <div class="verdict"><div class="verdict-label">AI Verdict</div><div class="verdict-text">${c.verdict}</div></div>
     <div class="cmp-table-card">
       <div class="card-label" style="padding:1rem 1.5rem;border-bottom:1px solid var(--line)">Head-to-head spec</div>
       <table class="cmp-table">
@@ -553,40 +754,15 @@ function renderCompare(c) {
         <tbody>${rows}</tbody>
       </table>
     </div>
-
-    <div class="cmp-wo-grid">
-      ${woCol(a, a.make+' '+a.model)}
-      ${woCol(b, b.make+' '+b.model)}
-    </div>
-
-    <div class="card grid1">
-      <div class="card-label">Score comparison</div>
-      ${scoreBars}
-    </div>
-
+    <div class="cmp-wo-grid">${woCol(a,a.make+' '+a.model)}${woCol(b,b.make+' '+b.model)}</div>
+    <div class="card grid1"><div class="card-label">Score comparison</div>${scoreBars}</div>
     <div class="grid2" style="margin-top:1.25rem">
-      <div class="card">
-        <div class="card-label">${a.make} ${a.model} — summary</div>
-        <p style="font-size:0.85rem;color:var(--ink2);line-height:1.65">${a.summary}</p>
-      </div>
-      <div class="card">
-        <div class="card-label">${b.make} ${b.model} — summary</div>
-        <p style="font-size:0.85rem;color:var(--ink2);line-height:1.65">${b.summary}</p>
-      </div>
+      <div class="card"><div class="card-label">${a.make} ${a.model} — summary</div><p style="font-size:0.85rem;color:var(--ink2);line-height:1.65">${a.summary}</p></div>
+      <div class="card"><div class="card-label">${b.make} ${b.model} — summary</div><p style="font-size:0.85rem;color:var(--ink2);line-height:1.65">${b.summary}</p></div>
     </div>
-
     <div style="text-align:center;padding-top:1.5rem;font-size:0.72rem;color:var(--ink3)">Analysis powered by AI · always verify with a physical inspection</div>
   </div>`);
-
-  // animate score bars
-  setTimeout(()=>{
-    Object.entries(sc).forEach(([key,vals])=>{
-      const ba=document.getElementById('sb-a-'+key);
-      const bb=document.getElementById('sb-b-'+key);
-      if(ba) ba.style.width=vals.a+'%';
-      if(bb) bb.style.width=vals.b+'%';
-    });
-  },200);
+  setTimeout(()=>{Object.entries(sc).forEach(([key,vals])=>{const ba=document.getElementById('sb-a-'+key),bb=document.getElementById('sb-b-'+key);if(ba)ba.style.width=vals.a+'%';if(bb)bb.style.width=vals.b+'%';});},200);
 }
 </script>
 </body>
